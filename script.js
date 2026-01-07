@@ -4,43 +4,43 @@
 const furnitureData = [
     // --- LIVING ROOM ---
     { id: 'ref-14101', title: 'CHROME SLING CHAIR', aesthetic: 'TECHNICAL', a_code: '1', r_code: '1', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Living / Seating
-    { id: 'ref-34101', title: 'GLOSSY POLYMER LOUNGER', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '1', o_code: '1' }, // Living / Seating
-    { id: 'ref-24101', title: 'CONCRETE CLUB CHAIR', aesthetic: 'MONOLITH', a_code: '2', r_code: '1', o_code: '1' }, // Living / Seating
-    { id: 'ref-54102', title: 'MYCELIUM STOOL', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '1' }, // Living / Seating
-    { id: 'ref-26201', title: 'RAW STONE CONSOLE', aesthetic: 'MONOLITH', a_code: '2', r_code: '1', o_code: '2' }, // Living / Tables
+    { id: 'ref-34101', title: 'GLOSSY POLYMER LOUNGER', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '1', o_code: '1' , img: 'images/ref-14101-1.jpg' }, // Living / Seating
+    { id: 'ref-24101', title: 'CONCRETE CLUB CHAIR', aesthetic: 'MONOLITH', a_code: '2', r_code: '1', o_code: '1' , img: 'images/ref-14101-1.jpg' }, // Living / Seating
+    { id: 'ref-54102', title: 'MYCELIUM STOOL', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '1' , img: 'images/ref-14101-1.jpg' }, // Living / Seating
+    { id: 'ref-26201', title: 'RAW STONE CONSOLE', aesthetic: 'MONOLITH', a_code: '2', r_code: '1', o_code: '2' , img: 'images/ref-14101-1.jpg' }, // Living / Tables
 
     // --- DINING ROOM ---
-    { id: 'ref-21201', title: 'TRAVERTINE DINING TABLE', aesthetic: 'MONOLITH', a_code: '2', r_code: '2', o_code: '2' }, // Dining / Tables
-    { id: 'ref-31101', title: 'TULIP DINING CHAIR', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '2', o_code: '1' }, // Dining / Seating
-    { id: 'ref-41101', title: 'TAPESTRY DINING CHAIR', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '2', o_code: '1' }, // Dining / Seating
+    { id: 'ref-21201', title: 'TRAVERTINE DINING TABLE', aesthetic: 'MONOLITH', a_code: '2', r_code: '2', o_code: '2' , img: 'images/ref-14101-1.jpg' }, // Dining / Tables
+    { id: 'ref-31101', title: 'TULIP DINING CHAIR', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '2', o_code: '1' , img: 'images/ref-14101-1.jpg' }, // Dining / Seating
+    { id: 'ref-41101', title: 'TAPESTRY DINING CHAIR', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '2', o_code: '1' , img: 'images/ref-14101-1.jpg' }, // Dining / Seating
 
     // --- WORKSPACE ---
-    { id: 'ref-47201', title: 'BURL WOOD DESK', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '3', o_code: '2' }, // Workspace / Tables
-    { id: 'ref-17301', title: 'ALUMINUM TASK LIGHT', aesthetic: 'TECHNICAL', a_code: '1', r_code: '3', o_code: '3' }, // Workspace / Lighting
-    { id: 'ref-14401', title: 'STEEL MODULAR SHELF', aesthetic: 'TECHNICAL', a_code: '1', r_code: '3', o_code: '4' }, // Workspace / Storage
+    { id: 'ref-47201', title: 'BURL WOOD DESK', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '3', o_code: '2' , img: 'images/ref-14101-1.jpg' }, // Workspace / Tables
+    { id: 'ref-17301', title: 'ALUMINUM TASK LIGHT', aesthetic: 'TECHNICAL', a_code: '1', r_code: '3', o_code: '3' , img: 'images/ref-14101-1.jpg' }, // Workspace / Lighting
+    { id: 'ref-14401', title: 'STEEL MODULAR SHELF', aesthetic: 'TECHNICAL', a_code: '1', r_code: '3', o_code: '4' , img: 'images/ref-14101-1.jpg' }, // Workspace / Storage
 
     // --- BEDROOM ---
-    { id: 'ref-45101', title: 'VELVET BED FRAME', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '4', o_code: '1' }, // Bedroom / Seating (Bed)
-    { id: 'ref-35301', title: 'ORBITER NIGHT LIGHT', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '4', o_code: '3' }, // Bedroom / Lighting
-    { id: 'ref-54301', title: 'MELTED GLASS LAMP', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '4', o_code: '3' }, // Bedroom / Lighting
-    { id: 'ref-44601', title: 'SILK AREA RUG', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '4', o_code: '5' }, // Bedroom / Decor
+    { id: 'ref-45101', title: 'VELVET BED FRAME', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '4', o_code: '1' , img: 'images/ref-14101-1.jpg' }, // Bedroom / Seating (Bed)
+    { id: 'ref-35301', title: 'ORBITER NIGHT LIGHT', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '4', o_code: '3' , img: 'images/ref-14101-1.jpg' }, // Bedroom / Lighting
+    { id: 'ref-54301', title: 'MELTED GLASS LAMP', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '4', o_code: '3' , img: 'images/ref-14101-1.jpg' }, // Bedroom / Lighting
+    { id: 'ref-44601', title: 'SILK AREA RUG', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '4', o_code: '5' , img: 'images/ref-14101-1.jpg' }, // Bedroom / Decor
 
     // --- CORRIDOR (Was Transit) ---
-    { id: 'ref-27401', title: 'HEAVY OAK CABINET', aesthetic: 'MONOLITH', a_code: '2', r_code: '5', o_code: '4' }, // Corridor / Storage
-    { id: 'ref-13701', title: 'MACHINED DOOR HANDLE', aesthetic: 'TECHNICAL', a_code: '1', r_code: '5', o_code: '5' }, // Corridor / Decor (Hardware)
+    { id: 'ref-27401', title: 'HEAVY OAK CABINET', aesthetic: 'MONOLITH', a_code: '2', r_code: '5', o_code: '4' , img: 'images/ref-14101-1.jpg' }, // Corridor / Storage
+    { id: 'ref-13701', title: 'MACHINED DOOR HANDLE', aesthetic: 'TECHNICAL', a_code: '1', r_code: '5', o_code: '5' , img: 'images/ref-14101-1.jpg' }, // Corridor / Decor (Hardware)
 
     // --- CLOSET (New!) ---
     // Added a few items here so the filter isn't empty:
-    { id: 'ref-66101', title: 'WALNUT VALET STAND', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '7', o_code: '4' }, // Closet / Storage
-    { id: 'ref-66201', title: 'ACRYLIC HANGER SET', aesthetic: 'TECHNICAL', a_code: '1', r_code: '7', o_code: '5' }, // Closet / Decor
+    { id: 'ref-66101', title: 'WALNUT VALET STAND', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '7', o_code: '4' , img: 'images/ref-14101-1.jpg' }, // Closet / Storage
+    { id: 'ref-66201', title: 'ACRYLIC HANGER SET', aesthetic: 'TECHNICAL', a_code: '1', r_code: '7', o_code: '5' , img: 'images/ref-14101-1.jpg' }, // Closet / Decor
 
     // --- EXTERIOR ---
-    { id: 'ref-77101', title: 'IRON GARDEN BENCH', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '6', o_code: '1' }, // Exterior / Seating
+    { id: 'ref-77101', title: 'IRON GARDEN BENCH', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '6', o_code: '1' , img: 'images/ref-14101-1.jpg' }, // Exterior / Seating
     
     // --- GENERAL DECOR ---
-    { id: 'ref-53501', title: '3D PRINTED SCULPTURE', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '5' }, // Living / Decor
-    { id: 'ref-34501', title: 'NEON ACRYLIC VASE', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '1', o_code: '5' }, // Living / Decor
-    { id: 'ref-51201', title: 'ORGANIC FORM TABLE', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '2' }, // Living / Table
+    { id: 'ref-53501', title: '3D PRINTED SCULPTURE', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '5' , img: 'images/ref-14101-1.jpg' }, // Living / Decor
+    { id: 'ref-34501', title: 'NEON ACRYLIC VASE', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '1', o_code: '5' , img: 'images/ref-14101-1.jpg' }, // Living / Decor
+    { id: 'ref-51201', title: 'ORGANIC FORM TABLE', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '2' , img: 'images/ref-14101-1.jpg' }, // Living / Table
 ];
 // State Management
 let activeFilters = { aesthetic: 'all', room: 'all', object: 'all' };
@@ -103,21 +103,20 @@ function scrambleTrigger(element) {
  * Renders the full archive grid (Index Page)
  */
 function renderArchiveGrid(data = furnitureData) {
-    const grid = document.querySelector('.archive-grid') || document.getElementById('journal-container');
+    const grid = document.getElementById('archive-grid') || document.getElementById('journal-container');
     if (!grid) return;
 
     const savedJournal = JSON.parse(localStorage.getItem('studioJournal')) || [];
     const isJournalPage = !!document.getElementById('journal-container');
-    const emptyMsg = document.getElementById('empty-message');
 
-    // 1. Context Check: Are we looking at the full archive or just hearted items?
+    // 1. Context Check: Calculate what SHOULD be visible
     let displayData = isJournalPage 
         ? data.filter(item => savedJournal.includes(item.id)) 
         : data;
 
-    // 2. Handle Empty States
+    // 2. Handle Empty States (Keep your exact logic here)
     if (displayData.length === 0) {
-        grid.innerHTML = '';
+        // Since there is nothing to animate, we can use innerHTML here safely
         
         if (isJournalPage && savedJournal.length === 0) {
             // CASE A: The Journal is literally empty
@@ -126,22 +125,46 @@ function renderArchiveGrid(data = furnitureData) {
                     <p class="ref-id" style="opacity: 0.5; margin-bottom: 5px;">YOUR JOURNAL IS CURRENTLY EMPTY.</p>
                     <a href="index.html#archive-start" class="aesthetic-tag" style="text-decoration: underline; margin-bottom: 0;">RETURN TO THE ARCHIVE TO START CURATING</a>
                 </div>`;
-
-                // YOUR JOURNAL IS CURRENTLY EMPTY
-                // RETURN TO THE ARCHIVE TO START CURATING
-                
-                
         } else {
-            // CASE B: Items exist, but current filters (Aesthetic/Room) hidden them
+            // CASE B: Items exist, but current filters hidden them
             grid.innerHTML = `
-                <div style="grid-column: 1/-1; text-align: center; padding: 100px 0;">
+                <div class="empty-filter-msg" style="grid-column: 1/-1; text-align: center; padding: 100px 0;">
                     <p class="ref-id" style="opacity: 0.5;">NO MATCHES FOUND WITHIN YOUR CURATION.</p>
                     <p class="clear-filters-btn" onclick="resetFilters()">CLEAR FILTERS</p>
                 </div>`;
         }
-    } else {
-        grid.innerHTML = generateGridHTML(displayData, savedJournal);
+        return; // Stop here, nothing to animate
     }
+
+    // 3. INITIAL RENDER (If grid is empty or has an error message)
+    // We render the HTML once so the elements exist in the DOM
+    const hasErrorMsg = grid.querySelector('#empty-message') || grid.querySelector('.empty-filter-msg');
+    
+    if (grid.children.length === 0 || hasErrorMsg) {
+        // If we are on Archive, render ALL data initially so we can filter later.
+        // If we are on Journal, render only the journal items.
+        const initialBatch = isJournalPage ? displayData : furnitureData;
+        grid.innerHTML = generateGridHTML(initialBatch, savedJournal);
+    }
+
+    // 4. THE ANIMATION LOOP (The Glide Effect)
+    // Instead of rebuilding HTML, we move/hide existing elements.
+    
+    const visibleIds = displayData.map(item => item.id);
+    const allCards = grid.querySelectorAll('.product-card');
+
+    allCards.forEach(card => {
+        const id = card.getAttribute('data-id');
+
+        if (visibleIds.includes(id)) {
+            // MATCH: Show it and move it to the correct sorted position
+            card.style.display = ''; 
+            grid.appendChild(card); // Moves the element physically, triggering the glide
+        } else {
+            // NO MATCH: Hide it
+            card.style.display = 'none';
+        }
+    });
 }
 
 function resetFilters() {
@@ -279,15 +302,20 @@ function generateGridHTML(data, savedJournal) {
         const isLiked = savedJournal.includes(item.id);
         const activeClass = isLiked ? 'liked' : '';
         
-        // NEW LOGIC: Check if the item has an image
-        // If yes: Render the <img> tag
-        // If no: Render the gray placeholder box
+        // 1. PREPARE CUSTOM STYLES (Zoom & Crop)
+        // We build a style string to handle specific zoom levels or positions per item
+        let imgStyles = '';
+        if (item.position) imgStyles += `object-position: ${item.position};`;
+        if (item.zoom)     imgStyles += `--img-scale: ${item.zoom};`;
+
+        // 2. MEDIA LOGIC
+        // Added 'loading="lazy"' for speed and 'style' for the zoom effects
         const mediaHTML = item.img 
-            ? `<img src="${item.img}" alt="${item.title}">` 
+            ? `<img src="${item.img}" alt="${item.title}" style="${imgStyles}" loading="lazy">` 
             : `<div class="image-placeholder"><span>${item.id.toUpperCase()}</span></div>`;
 
         return `
-        <div class="product-card">
+        <div class="product-card" data-id="${item.id}">
             <div class="product-image-container">
                 ${mediaHTML}
                 <button class="heart-btn ${activeClass}" onclick="toggleJournal(event, this, '${item.id}')">
@@ -469,17 +497,48 @@ function toggleThemeTrigger(element) {
 }
 
 /* ==========================================================================
-   5. INITIALIZATION
+   5. INITIALIZATION & ANIMATION SETUP
    ========================================================================== */
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Load the correct grid for the current page
-    renderArchiveGrid();
+let animateGrid; // Global variable for the animation engine
+
+document.addEventListener('DOMContentLoaded', async () => {
     
-    // 2. Load User Preferences
+    // --- STEP 1: LOAD ANIMATION ---
+    try {
+        const { default: autoAnimate } = await import('https://cdn.jsdelivr.net/npm/@formkit/auto-animate/index.min.js');
+        animateGrid = autoAnimate;
+        
+        const archiveGrid = document.getElementById('archive-grid');
+        const journalGrid = document.getElementById('journal-container');
+        
+        // --- CONFIGURATION: SLOW DOWN ANIMATION ---
+        // duration: 800ms (0.8s) makes it look like a smooth glide
+        const config = { 
+    duration: 700, 
+    // This curve starts quick but creates a long, smooth braking effect
+    easing: 'cubic-bezier(0.25, 1, 0.5, 1)' 
+};
+
+        if (archiveGrid) animateGrid(archiveGrid, config);
+        if (journalGrid) animateGrid(journalGrid, config);
+        
+    } catch (error) {
+        console.warn("Animation library failed to load.", error);
+        animateGrid = () => {}; 
+    }
+
+    // --- STEP 2: PREPARE THE GRID ---
+    const gridToClean = document.getElementById('archive-grid') || document.getElementById('journal-container');
+    if (gridToClean) {
+        gridToClean.innerHTML = ''; 
+    }
+
+    // --- STEP 3: START THE ENGINE ---
+    renderArchiveGrid();
     updateJournalCount();
     initTheme();
     
-    // 3. Initialize Smooth Scroll
+    // --- STEP 4: SMOOTH SCROLL ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -491,3 +550,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+/* ==========================================================================
+   6. EXPOSE FUNCTIONS TO HTML
+   ========================================================================== */
+// This makes the functions available to your onclick="..." attributes
+window.toggleJournal = toggleJournal;
+window.resetFilters = resetFilters;
+window.updateFilter = updateFilter;
+window.selectOption = selectOption;
+window.toggleThemeTrigger = toggleThemeTrigger;

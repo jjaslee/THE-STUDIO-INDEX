@@ -91,8 +91,14 @@ body {
 
     position: relative; /* CRITICAL for z-index to work */
     z-index: 1;         /* Default layer */
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    /* transition: opacity 0.4s ease, transform 0.4s ease; */
+    
+    transition: none !important;
+    transform-origin: center center;
+    backface-visibility: hidden; /* Helps smooth out movements */
 }
+
+
 
 .product-card:hover {
     z-index: 50; 
@@ -710,7 +716,29 @@ header .footer-logo {
     opacity: 1;
     /* Becomes fully dark/visible on hover */
     color: var(--text);
-    /* Ensures it uses your main dark text color */
+    /* Ensures it uses your main dark text
+     color */
+}
+
+/* =========================================
+   FIX: STOP EMPTY MESSAGE FROM SLIDING
+   ========================================= */
+/* Ensure the empty message maintains structure if it tries to animate */
+.empty-filter-msg {
+    width: 100%;       /* Force full width so it doesn't shrink */
+    left: 0 !important; /* Force it to stay on the left edge if it becomes absolute */
+    transform: none !important; /* Ban movement */
+}
+#empty-message {
+    /* 1. Force the element to stay exactly where it is */
+    transform: none !important; 
+    
+    /* 2. (Optional) Make it disappear instantly or fade out */
+    transition: opacity 0.2s ease !important;
+    
+    /* 3. Ensure it stays centered during the split second it's being removed */
+    width: 100%;
+    margin: 0 auto;
 }
 
 /* Responsive adjustments */
