@@ -14,25 +14,28 @@
 <body>
     <div id="top"></div>
     <nav class="nav-bridge">
-        <a href="index.html" class="bridge-logo">THE STUDIO INDEX</a>
-        <div class="bridge-right-zone">
-            <a href="index.html#archive-start" class="nav-link">
-                <span onmouseenter="scrambleTrigger(this)" data-true-word="ARCHIVE">ARCHIVE</span>
-            </a>
-            <a href="about.html" class="nav-link">
-                <span onmouseenter="scrambleTrigger(this)" data-true-word="ABOUT">ABOUT</span>
-            </a>
-            <a href="journal.html" class="nav-link">
-                <span onmouseenter="scrambleTrigger(this)" data-true-word="JOURNAL">JOURNAL</span>
-                [ <span class="journal-count current-text" onmouseenter="scrambleTrigger(this)"
-                    data-true-word="0">0</span> ]
-            </a>
-            <span class="nav-link" id="theme-toggle" onclick="toggleThemeTrigger(this)"
-                onmouseenter="scrambleTrigger(this)" style="cursor:pointer;">
-                [ <span class="current-text" data-true-word="MODE: LIGHT">MODE: LIGHT</span> ]
-            </span>
-        </div>
-    </nav>
+    <a href="#top" class="bridge-logo">THE STUDIO INDEX</a>
+    
+    <div class="bridge-right-zone">
+        <a href="index.html#archive-start" class="nav-link" onmouseenter="scrambleTrigger(this.querySelector('span'))">
+            <span data-true-word="ARCHIVE">ARCHIVE</span>
+        </a>
+
+        <a href="about.html" class="nav-link active" onmouseenter="scrambleTrigger(this.querySelector('span'))">
+            <span data-true-word="ABOUT">ABOUT</span>
+        </a>
+
+        <a href="journal.html" class="nav-link" onmouseenter="scrambleTrigger(this.querySelector('span'))">
+            <span data-true-word="JOURNAL">JOURNAL</span>
+            [ <span class="journal-count current-text" data-true-word="0">0</span> ]
+        </a>
+
+        <span class="nav-link" id="theme-toggle" onclick="toggleThemeTrigger(this)"
+            onmouseenter="scrambleTrigger(this.querySelector('.current-text'))" style="cursor:pointer;">
+            [ <span class="current-text" data-true-word="MODE: LIGHT">MODE: LIGHT</span> ]
+        </span>
+    </div>
+</nav>
 
     <header>
         <h1 class="footer-logo">METHODOLOGY</h1>

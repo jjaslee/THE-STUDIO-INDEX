@@ -896,3 +896,12 @@ main.archive-grid {
 .clear-filters-btn:hover {
     opacity: 1;         /* Hover: Dark/Visible */
 }
+
+
+/* SAFARI FIX: 
+   Prevents the text interaction from blocking the click 
+   while it is scrambling. */
+.nav-link span, 
+.current-text {
+    pointer-events: none;
+}
