@@ -3,7 +3,7 @@
    ========================================================================== */
 const furnitureData = [
     // --- LIVING ROOM ---
-    { id: 'ref-14101', title: 'CHROME SLING CHAIR', aesthetic: 'TECHNICAL', a_code: '1', r_code: '1', o_code: '1', img: 'images/ref-14101-1.png' }, // Living / Seating
+    { id: 'ref-14101', title: 'CHROME SLING CHAIR', aesthetic: 'TECHNICAL', a_code: '1', r_code: '1', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Living / Seating
     { id: 'ref-34101', title: 'GLOSSY POLYMER LOUNGER', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '1', o_code: '1' }, // Living / Seating
     { id: 'ref-24101', title: 'CONCRETE CLUB CHAIR', aesthetic: 'MONOLITH', a_code: '2', r_code: '1', o_code: '1' }, // Living / Seating
     { id: 'ref-54102', title: 'MYCELIUM STOOL', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '1' }, // Living / Seating
@@ -290,7 +290,7 @@ function generateGridHTML(data, savedJournal) {
         <div class="product-card">
             <div class="product-image-container">
                 ${mediaHTML}
-                <button class="heart-btn ${activeClass}" onclick="toggleJournal(this, '${item.id}')">
+                <button class="heart-btn ${activeClass}" onclick="toggleJournal(event, this, '${item.id}')">
                     <svg class="heart-icon" viewBox="0 0 24 24">
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                     </svg>
@@ -307,23 +307,57 @@ function generateGridHTML(data, savedJournal) {
 /**
  * Enhanced Toggle: Updates memory, counts, and refreshes the journal view
  */
-function toggleJournal(btnElement, id) {
-    let journal = JSON.parse(localStorage.getItem('studioJournal')) || [];
-    
-    // 1. Update Memory
-    if (journal.includes(id)) {
-        journal = journal.filter(item => item !== id);
-        btnElement.classList.remove('liked');
-    } else {
-        journal.push(id);
-        btnElement.classList.add('liked');
-    }
-    localStorage.setItem('studioJournal', JSON.stringify(journal));
-    updateJournalCount();
+function toggleJournal(event, btn, id) {
+    // 1. Stop the click from bubbling up
+    event.stopPropagation();
+    event.preventDefault();
 
-    // 2. REFRESH THE VIEW
-    // The "Brain" now handles both pages correctly
-    applyCurrentFilters();
+    // 2. Get the current saved list (Using the CORRECT key 'studioJournal')
+    let saved = JSON.parse(localStorage.getItem('studioJournal')) || [];
+    const index = saved.indexOf(id);
+    
+    // Track if we are removing an item
+    let isRemoving = false;
+
+    // 3. Logic: Add or Remove
+    if (index > -1) {
+        // ITEM EXISTS: Remove it
+        saved.splice(index, 1);
+        btn.classList.remove('liked'); 
+        isRemoving = true; // Mark as removed
+    } else {
+        // ITEM NEW: Add it
+        saved.push(id);
+        btn.classList.add('liked');    
+    }
+
+    // 4. Save back to memory
+    localStorage.setItem('studioJournal', JSON.stringify(saved));
+
+    // 5. Update the count immediately
+    if (typeof updateJournalCount === 'function') {
+        updateJournalCount();
+    }
+
+    // --- NEW LOGIC: VISUAL REMOVAL FOR JOURNAL PAGE ---
+    // We check if the special 'journal-container' exists (meaning we are on the Journal Page)
+    const journalContainer = document.getElementById('journal-container');
+    
+    if (journalContainer && isRemoving) {
+        // A. Find the card that belongs to this button
+        const card = btn.closest('.product-card');
+        
+        // B. Remove it from the screen immediately (Poof!)
+        if (card) {
+            card.remove();
+        }
+
+        // C. Special Check: If you deleted the last item, show the "Empty" message
+        // We count how many cards are left. If 0, we force a refresh to show the text.
+        if (journalContainer.querySelectorAll('.product-card').length === 0) {
+            renderArchiveGrid(); 
+        }
+    }
 }
 
 function updateJournalCount() {
