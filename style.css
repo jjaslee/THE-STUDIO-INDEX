@@ -1,0 +1,898 @@
+:root {
+    --bg: #F9F9F9;
+    --text: #1A1A1A;
+    --muted: #888888;
+    --border: #E5E5E5;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Inter', sans-serif;
+    --heart: #fce1e5;
+}
+
+body.dark {
+    --bg: #121212;
+    --text: #E0E0E0;
+    --muted: #666666;
+    --border: #2A2A2A;
+}
+
+/* Add this at the very top of your CSS file */
+html {
+    scroll-behavior: smooth;
+}
+
+#archive-start {
+    /* Adjust '80px' to the height of your sticky logo bar */
+    scroll-margin-top: -400px;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    margin: 0;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* TOP NAV BRIDGE */
+.nav-bridge {
+    position: sticky;
+    top: 0;
+    z-index: 1300;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bridge-logo,
+.nav-link,
+.filter-label,
+
+.filter-dropdown {
+    background: transparent;
+    border: 1px solid transparent;
+    color: inherit;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    cursor: pointer;
+    outline: none;
+    padding: 2px 5px;
+    text-transform: uppercase;
+    -webkit-appearance: none;
+    /* Removes default arrow */
+    appearance: none;
+}
+
+.filter-dropdown:hover {
+    border-bottom: 1px solid currentColor;
+}
+
+/* Hide focus border but show active state */
+.filter-dropdown:focus {
+    border-bottom: 1px solid var(--text-color);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--border-color);
+    /* Separation lines */
+    padding: 0 15px;
+}
+
+.filter-group:last-child {
+    border-right: none;
+}
+
+/* Ensure the grid updates feel high-end */
+.product-card {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.column-title,
+.footer-logo {
+    font-family: var(--mono) !important;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.bridge-logo {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.bridge-right-zone {
+    display: flex;
+    gap: 30px;
+}
+
+/* This targets ARCHIVE, JOURNAL, and the MODE toggle */
+/* 1. THE MAIN NAV LINK STATE */
+.nav-link,
+.nav-link:visited,
+.nav-link:active {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    /* The extra space between word and [3] */
+    color: var(--text) !important;
+    text-decoration: none !important;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+    opacity: 1;
+}
+
+/* Scramble Stability */
+.nav-link span {
+    display: inline-block;
+    text-align: center;
+}
+
+/* FIX: Lock the width of the Mode Toggle to prevent jittering */
+#theme-toggle .current-text {
+    display: inline-block;
+    width: 11ch;
+    /* "MODE: LIGHT" is exactly 11 characters long */
+    text-align: center;
+    /* Keeps "MODE: DARK" centered in that space */
+    white-space: pre;
+    /* Prevents collapsing */
+}
+
+.nav-link span[data-true-word="0"] {
+    min-width: 0px;
+}
+
+/* FIX: Lock the width of the Journal Counter */
+/* FIX: Lock width to 1 character (tight fit like [0]) */
+/* FIX: Lock width to 1 character and KILL the 40px gap override */
+.journal-count {
+    display: inline-block;
+    width: 2ch;           /* Keeps it tight like [0] */
+    min-width: 0 !important; /* CRITICAL: This forces it to ignore the 40px rule */
+    text-align: center; 
+    white-space: pre;
+    margin: 0;
+}
+/* Ensure the logo on the left doesn't scramble/shift */
+.bridge-logo {
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+/* HEADER */
+header {
+    /* Top: Space for the fixed nav | Sides | Bottom: Space before carousel */
+    padding: 110px 5% 80px 5%;
+    text-align: center;
+}
+
+h1 {
+    font-family: var(--mono);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+
+.subtitle {
+    /* Use sans-serif for Futura/Jost */
+    font-family: 'Jost', 'Futura', sans-serif;
+
+    /* Use 300 for that ultra-light look */
+    font-weight: 300;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+
+    color: var(--muted);
+    margin-top: 30px;
+
+    /* The Line */
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    /* Space above the line */
+    margin-bottom: 40px;
+    /* Space below the line (Positive value) */
+
+    display: block;
+    /* Ensures the border spans the width correctly */
+}
+
+/* FILTER BRIDGE */
+/* Tightens the container spacing */
+/* FILTER BRIDGE */
+.filter-bridge {
+    position: sticky;
+    top: 45px;
+    z-index: 1200;
+    /* Higher to stay above carousel */
+    background-color: var(--bg);
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 15px 5%;
+    border-bottom: 1px solid var(--border);
+}
+
+.filter-bridge {
+    justify-content: center;
+    gap: 50px;
+    /* Wider gap for clarity */
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Static Label Style */
+.filter-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--muted);
+    /* Muted by default, stays static */
+    letter-spacing: 1px;
+    pointer-events: none;
+    /* User cannot hover/interact with label */
+}
+
+/* Trigger Style (The Choices) */
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-trigger {
+    font-family: var(--mono);
+    font-size: 11px;
+    /* Slightly bigger than category name */
+    color: var(--muted);
+    /* Muted by default */
+    cursor: pointer;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.dropdown-trigger:hover {
+    color: var(--text);
+    /* Darkens on hover */
+    text-decoration: none;
+    /* No underline */
+}
+
+.current-text {
+    display: inline-block;
+    min-width: 40px;
+    /* Prevents layout shifting */
+}
+
+/* The Menu */
+/* 1. THE MENU CONTAINER */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    z-index: 2000;
+    margin-top: 10px;
+    /* This creates the visual gap */
+    min-width: 200px;
+}
+
+/* 2. THE HOVER LOGIC (Keeps it open) */
+.custom-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* 3. THE INVISIBLE BRIDGE (The Fix) */
+/* This fills the 10px gap so the mouse doesn't "fall through" */
+.dropdown-menu::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -15px;
+    /* Moves it up into the gap */
+    left: 0;
+    width: 100%;
+    height: 15px;
+    /* Matches the margin-top size */
+    background: transparent;
+    /* Invisible */
+}
+
+/* 4. THE ITEMS INSIDE */
+.dropdown-item {
+    padding: 10px 15px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.dropdown-item:hover {
+    background: var(--border);
+    color: var(--text);
+}
+
+/* LOCKS THE SCRAMBLE AREA */
+.filter-group .nav-link span {
+    display: inline-block;
+    text-align: center;
+    min-width: 50px;
+    /* Adjust this so words like 'INDUSTRIAL' don't push the brackets */
+}
+
+/* FIX: Lock the widths of the Filter Dropdowns so they never jitter */
+
+/* 1. Aesthetic needs space for "HIGH-TECH / SENSORY" (approx 19-20ch) */
+/* UPDATED: Increased width to fit 'SOFT HERITAGE' */
+#aesthetic-trigger .current-text,
+#room-trigger .current-text,
+#object-trigger .current-text {
+    display: inline-block;
+    width: 14ch;         /* 14 chars covers your longest word perfectly */
+    text-align: center;
+    white-space: pre;
+}
+
+/* Fixes the "red/purple" link issue for filters too */
+.filter-group .nav-link {
+    color: var(--text) !important;
+    text-decoration: none !important;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.filter-group .nav-link:hover {
+    opacity: 1;
+}
+
+/* CAROUSEL LAYOUT */
+/* 1. THE VIEWPORT */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 30px 0;
+    /* Reduced padding for a tighter fit */
+    pointer-events: none;
+}
+
+/* 2. THE MOVING TRACK */
+.carousel-track {
+    display: flex;
+    width: max-content;
+    gap: 40px;
+    /* Closer spacing for elegance */
+    animation: continuousSlide 80s linear infinite;
+    /* Slower, more "museum" crawl */
+    pointer-events: auto;
+    align-items: center;
+}
+
+/* Pause trigger */
+.carousel-track:has(.carousel-item:hover) {
+    animation-play-state: paused;
+}
+
+/* 3. THE IMAGE BOXES */
+.carousel-item {
+    position: relative;
+    width: 550px;
+    /* Slightly wider for cinematic feel */
+    height: 380px;
+    flex-shrink: 0;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Slower, smoother transition */
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* SUBTLE ENLARGE EFFECT */
+.carousel-item:hover {
+    transform: scale(1.05);
+    /* Very subtle pop */
+    z-index: 100;
+}
+
+/* 4. THE SUBTLE INTERNAL ZOOM */
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-item:hover img {
+    transform: scale(1.08);
+    /* Minimal zoom to avoid fish-eye effect */
+}
+
+/* 5. THE LABEL (Pinned & Subtle) */
+.item-label {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    color: #FFF;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: 2;
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+.carousel-item:hover .item-label {
+    opacity: 1;
+}
+
+/* 6. INFINITE MOVEMENT */
+@keyframes continuousSlide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* THE MASTER ARCHIVE GRID */
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 Columns */
+    gap: 40px 30px;
+    padding: 60px 5%;
+    min-height: 100vh;
+    /* Ensures the page doesn't look cut off */
+    transition: opacity 0.3s ease;
+    /* Maintain your grid layout here */
+    padding-bottom: 50px;
+}
+
+/* .product-card {
+    animation: fadeIn 0.5s ease forwards;
+} */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.filter-opt.active {
+    opacity: 1;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* THE PLACEHOLDER BOX (Inside the grid) */
+.image-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    margin-bottom: 15px;
+    /* Adds space before the text starts */
+    transition: opacity 0.3s ease;
+}
+
+.image-placeholder span {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+}
+
+/* FOOTER */
+footer {
+    padding: 100px 5% 60px 5%;
+    border-top: 1px solid var(--border);
+    margin-top: 80px;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+}
+
+/* ALL CAPS JETBRAINS MONO LABELS */
+.footer-logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text);
+    text-decoration: none;
+
+    /* REDUCE THIS VALUE */
+    margin-top: -4px;
+    margin-bottom: -4px;
+    display: block;
+}
+
+.column-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text);
+    text-decoration: none;
+    margin-bottom: 15px;
+    /* Added spacing for breathing room */
+}
+
+/* JOST FONT FOR CONTENT */
+.footer-tagline,
+.footer-column a {
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--muted);
+    text-decoration: none;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for links */
+.footer-column a:hover {
+    color: var(--text);
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* Slightly tighter gap for links */
+}
+
+/* Keeping your disclosure exactly as you like it */
+.disclosure {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    padding-top: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--muted);
+}
+
+/* This targets the container holding your text */
+.grid-metadata {
+    display: flex;
+    flex-direction: column;
+    /* This stacks them vertically */
+    gap: 4px;
+    /* This controls the space between the two lines */
+    padding: 15px 0;
+}
+
+.ref-id {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--text);
+    display: block;
+}
+
+.aesthetic-tag {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+}
+
+.product-image-container {
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.heart-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.heart-icon {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    /* Empty heart by default */
+    stroke: #fce1e5;
+    stroke-width: 1.5px;
+    transition: all 0.3s ease;
+}
+
+/* When the item is saved, we add a class via JavaScript */
+.heart-btn.is-active .heart-icon {
+    fill: #fce1e5;
+    /* Solid heart when active */
+}
+
+/* Journal-specific 4-column layout */
+.journal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns instead of 3 */
+    gap: 30px;
+    padding: 60px 5%;
+}
+
+/* Target the title specifically within the Journal Header */
+header .footer-logo {
+    font-size: 1.2rem;
+    /* Increased from 11px */
+    letter-spacing: 0.15em;
+    /* Spreads the letters slightly for a premium feel */
+    margin-bottom: 10px;
+    /* Adds space before the tagline */
+}
+
+/* Select the link specifically within the empty journal message */
+#empty-message a.aesthetic-tag {
+    transition: color 0.3s ease, opacity 0.3s ease;
+    opacity: 0.6;
+    /* Starts slightly muted */
+    text-decoration: underline;
+}
+
+#empty-message a.aesthetic-tag:hover {
+    opacity: 1;
+    /* Becomes fully dark/visible on hover */
+    color: var(--text);
+    /* Ensures it uses your main dark text color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .journal-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .journal-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* --- ABOUT PAGE: TECHNICAL EDITORIAL --- */
+
+.about-content-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    /* Increased side padding to 15% for maximum breathability */
+    padding: 5px 15% 100px 15%;
+    text-align: left;
+    padding-bottom: 0px;    
+
+}
+
+
+/* PLACEHOLDER IMAGES */
+.placeholder-img {
+    background: var(--border);
+    width: 100%;
+}
+
+.hero-small {
+    max-width: 350px;
+    /* Even smaller hero accent */
+    aspect-ratio: 16 / 9;
+    margin: 0 auto 120px auto;
+    /* Centered with deep breathability */
+}
+
+.row-thumb {
+    aspect-ratio: 3 / 2;
+    max-width: 180px;
+}
+
+/* SECTION 01: DATA STRUCTURE (Technical Mono Font) */
+
+
+/* 1. Define the container that 'holds' the stickiness */
+/* 1. This container defines the "fence" for the sticky headers */
+.sticky-boundary {
+    position: relative;
+    /* This padding ensures the title doesn't unstick until 
+       the bottom margin of the pillars is reached */
+    padding-bottom: 80px; 
+    border-bottom: 1px solid var(--border);
+    
+}
+
+/* 2. Updated Section Title */
+.section-title {
+    position: -webkit-sticky; /* Safari support */
+    position: sticky;
+    top: 45px; /* Sits exactly under your nav-bridge (which is about 45-50px tall) */
+    z-index: 10;
+    
+    /* We use the background color here to hide content scrolling behind it */
+    background-color: var(--bg);
+    
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    display: block;
+    
+    /* This border separates it from the content as it sticks */
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0 10px 0;
+    margin-bottom: 0px;
+}
+
+/* 3. Small adjustment to logic spacing */
+.archive-logic {
+    padding-bottom: 20px;
+    padding-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
+    margin-bottom: 120px;
+    font-family: var(--mono);
+    /* Forces the whole section to Mono */
+    margin-left: 30px;
+}
+
+.digit-box {
+    display: inline-block;
+    background: var(--text);
+    color: var(--bg);
+    padding: 2px 10px;
+    font-size: 11px;
+    margin-bottom: 15px;
+}
+
+.logic-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.logic-desc {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    /* Slightly smaller for technical detail look */
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* SECTION 02: MANIFESTO ROWS */
+.manifesto-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 50px;
+    padding: 80px 0;
+    /* More vertical breathing room */
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+    margin-left: 30px;
+}
+
+.manifesto-name {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.manifesto-body {
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 450px;
+}
+
+/* SECTION TITLES */
+
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .about-content-wrapper {
+        padding: 60px 8% 100px 8%;
+    }
+
+    .archive-logic {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .manifesto-row {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .hero-small {
+        max-width: 100%;
+    }
+}
+
+/* Add to style.css */
+.heart-btn.liked .heart-icon {
+    fill: var(--heart);
+    /* Fills the heart with your text color (black or white) */
+}
+
+/* Optional: Ensure the stroke matches too */
+.heart-btn.liked .heart-icon path {
+    stroke: var(--heart);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Centers the empty message vertically on the screen */
+#journal-container:empty {
+    display: none; /* Hide if truly empty to let the message take over */
+}
+
+/* If the empty message is the only thing there, center it */
+main.archive-grid {
+    min-height: 0; /* Remove forced height */
+}
+
+/* "Clear Filters" Button Style */
+.clear-filters-btn {
+    font-family: var(--sans); /* Matches your site font */
+    font-size: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+    text-decoration: underline;
+    opacity: 0.4;       /* Default: Light/Dim */
+    transition: opacity 0.3s ease;
+}
+
+.clear-filters-btn:hover {
+    opacity: 1;         /* Hover: Dark/Visible */
+}

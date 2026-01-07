@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE STUDIO INDEX | ARCHIVE</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&family=Inter:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=JetBrains+Mono:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=JetBrains+Mono:wght@300;400&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="top"></div>
+
+    <nav class="nav-bridge">
+
+        <a href="#top" class="bridge-logo">THE STUDIO INDEX</a>
+        <div class="bridge-right-zone">
+            <a href="index.html#archive-start" class="nav-link">
+                <span onmouseenter="scrambleTrigger(this)" data-true-word="ARCHIVE">ARCHIVE</span>
+            </a>
+            <a href="about.html" class="nav-link active">
+                <span onmouseenter="scrambleTrigger(this)" data-true-word="ABOUT">ABOUT</span>
+            </a>
+            <a href="journal.html" class="nav-link">
+                <span onmouseenter="scrambleTrigger(this)" data-true-word="JOURNAL">JOURNAL</span>
+                [ <span class="journal-count current-text" onmouseenter="scrambleTrigger(this)"
+                    data-true-word="0">0</span> ]
+            </a>
+
+            <span class="nav-link" id="theme-toggle" onclick="toggleThemeTrigger(this)"
+                onmouseenter="scrambleTrigger(this)" style="cursor:pointer;">
+                [ <span class="current-text" data-true-word="MODE: LIGHT">MODE: LIGHT</span> ]
+            </span>
+        </div>
+    </nav>
+    <header>
+        <h1>THE STUDIO INDEX</h1>
+        <div class="subtitle">A multi-aesthetic archive of furniture and objects. Selected for quality, curated for the
+            modern home.</div>
+    </header>
+
+    <section class="carousel-container" id="archive-start">
+        <div class="carousel-track">
+            <div class="carousel-item">
+                <img src="images/entry01.png">
+                <div class="item-label">ENTRY 001 // WARM MINIMAL</div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/entry02.png">
+                <div class="item-label">ENTRY 002 // SOFT INDUSTRIAL</div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/entry03.png">
+                <div class="item-label">ENTRY 003 // MODERN ARCHIVE</div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="images/entry01.png">
+                <div class="item-label">ENTRY 001 // WARM MINIMAL</div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/entry02.png">
+                <div class="item-label">ENTRY 002 // SOFT INDUSTRIAL</div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/entry03.png">
+                <div class="item-label">ENTRY 003 // MODERN ARCHIVE</div>
+            </div>
+        </div>
+    </section>
+
+    <nav class="filter-bridge">
+        <div class="filter-group">
+            <span class="filter-label">AESTHETIC:</span>
+            <div class="custom-dropdown">
+                <div class="dropdown-trigger" onmouseenter="scrambleTrigger(this)" id="aesthetic-trigger">
+                    [ <span class="current-text" data-true-word="ALL">ALL</span> ]
+                </div>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item" onclick="selectOption('aesthetic', 'all', '[ ALL ]')"
+                        onmouseenter="previewOption('aesthetic', this)" onmouseleave="revertOption('aesthetic')">[ ALL ]
+                    </div>
+                    <div class="dropdown-item" onclick="selectOption('aesthetic', '1', '[ TECHNICAL ]')"
+                        onmouseenter="previewOption('aesthetic', this)" onmouseleave="revertOption('aesthetic')">[
+                        TECHNICAL ]</div>
+                    <div class="dropdown-item" onclick="selectOption('aesthetic', '2', '[ MONOLITH ]')"
+                        onmouseenter="previewOption('aesthetic', this)" onmouseleave="revertOption('aesthetic')">[
+                        MONOLITH ]</div>
+                    <div class="dropdown-item" onclick="selectOption('aesthetic', '3', '[ UTOPIAN POP ]')"
+                        onmouseenter="previewOption('aesthetic', this)" onmouseleave="revertOption('aesthetic')">[
+                        UTOPIAN POP ]</div>
+                    <div class="dropdown-item" onclick="selectOption('aesthetic', '4', '[ SOFT HERITAGE ]')"
+                        onmouseenter="previewOption('aesthetic', this)" onmouseleave="revertOption('aesthetic')">[ SOFT
+                        HERITAGE ]</div>
+                    <div class="dropdown-item" onclick="selectOption('aesthetic', '5', '[ BIOMORPHIC ]')"
+                        onmouseenter="previewOption('aesthetic', this)" onmouseleave="revertOption('aesthetic')">[
+                        BIOMORPHIC ]</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-group">
+            <span class="filter-label">ROOM:</span>
+            <div class="custom-dropdown">
+                <div class="dropdown-trigger" onmouseenter="scrambleTrigger(this)" id="room-trigger">
+                    [ <span class="current-text" data-true-word="ALL">ALL</span> ]
+                </div>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item" onclick="selectOption('room', 'all', '[ ALL ]')"
+                        onmouseenter="previewOption('room', this)" onmouseleave="revertOption('room')">[ ALL ]</div>
+
+                    <div class="dropdown-item" onclick="selectOption('room', '1', '[ LIVING ]')"
+                        onmouseenter="previewOption('room', this)" onmouseleave="revertOption('room')">[ LIVING ]</div>
+
+                    <div class="dropdown-item" onclick="selectOption('room', '2', '[ DINING ]')"
+                        onmouseenter="previewOption('room', this)" onmouseleave="revertOption('room')">[ DINING ]</div>
+
+                    <div class="dropdown-item" onclick="selectOption('room', '3', '[ WORKSPACE ]')"
+                        onmouseenter="previewOption('room', this)" onmouseleave="revertOption('room')">[ WORKSPACE ]
+                    </div>
+
+                    <div class="dropdown-item" onclick="selectOption('room', '4', '[ BEDROOM ]')"
+                        onmouseenter="previewOption('room', this)" onmouseleave="revertOption('room')">[ BEDROOM ]</div>
+
+                    <div class="dropdown-item" onclick="selectOption('room', '7', '[ CLOSET ]')"
+                        onmouseenter="previewOption('room', this)" onmouseleave="revertOption('room')">[ CLOSET ]</div>
+
+                    <div class="dropdown-item" onclick="selectOption('room', '5', '[ CORRIDOR ]')"
+                        onmouseenter="previewOption('room', this)" onmouseleave="revertOption('room')">[ CORRIDOR ]
+                    </div>
+
+                    <div class="dropdown-item" onclick="selectOption('room', '6', '[ EXTERIOR ]')"
+                        onmouseenter="previewOption('room', this)" onmouseleave="revertOption('room')">[ EXTERIOR ]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-group">
+            <span class="filter-label">OBJECT:</span>
+            <div class="custom-dropdown">
+                <div class="dropdown-trigger" onmouseenter="scrambleTrigger(this)" id="object-trigger">
+                    [ <span class="current-text" data-true-word="ALL">ALL</span> ]
+                </div>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item" onclick="selectOption('object', 'all', '[ ALL ]')"
+                        onmouseenter="previewOption('object', this)" onmouseleave="revertOption('object')">[ ALL ]</div>
+
+                    <div class="dropdown-item" onclick="selectOption('object', '1', '[ SEATING ]')"
+                        onmouseenter="previewOption('object', this)" onmouseleave="revertOption('object')">[ SEATING ]
+                    </div>
+
+                    <div class="dropdown-item" onclick="selectOption('object', '2', '[ TABLES ]')"
+                        onmouseenter="previewOption('object', this)" onmouseleave="revertOption('object')">[ TABLES ]
+                    </div>
+
+                    <div class="dropdown-item" onclick="selectOption('object', '3', '[ LIGHTING ]')"
+                        onmouseenter="previewOption('object', this)" onmouseleave="revertOption('object')">[ LIGHTING ]
+                    </div>
+
+                    <div class="dropdown-item" onclick="selectOption('object', '4', '[ STORAGE ]')"
+                        onmouseenter="previewOption('object', this)" onmouseleave="revertOption('object')">[ STORAGE ]
+                    </div>
+
+                    <div class="dropdown-item" onclick="selectOption('object', '5', '[ DECOR ]')"
+                        onmouseenter="previewOption('object', this)" onmouseleave="revertOption('object')">[ DECOR ]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    </nav>
+
+    <div id="index-start" style="display: block;">
+        <main class="archive-grid" id="archive-start">
+            <div class="grid-item">
+                <div class="grid-image-container" style="position: relative;">
+                    <div class="grid-image"></div>
+                    <button class="heart-btn" onclick="toggleJournal('042')" aria-label="Add to Journal">
+                        <svg class="heart-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="grid-metadata">
+                    <span class="ref-id">REF. 042 // VELVET CLUB CHAIR</span>
+                    <span class="aesthetic-tag">MODERN NOIR</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-main">
+            <div class="footer-column brand-col">
+                <a href="#top" class="footer-logo">©THE STUDIO INDEX</a>
+                <p class="footer-tagline">A curated directory of spatial design and refined objects.</p>
+            </div>
+            <div class="footer-column">
+                <span class="column-title">NAVIGATION</span>
+                <a href="about.html">About</a>
+                <a href="#archive-start">The Archive</a>
+            </div>
+            <div class="footer-column">
+                <span class="column-title">CONNECT</span>
+                <a href="https://pinterest.com" target="_blank">Pinterest</a>
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+            </div>
+        </div>
+
+        <div class="disclosure">
+            <strong>A NOTE ON CURATION:</strong> The Studio Index is a curated archive of design and furniture. To
+
+            support our research and maintenance of this index, we participate in various affiliate programs. If you
+
+            purchase an object through our links, we may receive a commission at no additional cost to you. Every entry
+
+            is selected based on aesthetic merit and design integrity, independent of any retail partnership.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+
+    </div>
+
+</body>
+
+</html>
