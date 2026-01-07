@@ -3,7 +3,7 @@
    ========================================================================== */
 const furnitureData = [
     // --- LIVING ROOM ---
-    { id: 'ref-14101', title: 'CHROME SLING CHAIR', aesthetic: 'TECHNICAL', a_code: '1', r_code: '1', o_code: '1' }, // Living / Seating
+    { id: 'ref-14101', title: 'CHROME SLING CHAIR', aesthetic: 'TECHNICAL', a_code: '1', r_code: '1', o_code: '1', img: 'images/ref-14101-1.png' }, // Living / Seating
     { id: 'ref-34101', title: 'GLOSSY POLYMER LOUNGER', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '1', o_code: '1' }, // Living / Seating
     { id: 'ref-24101', title: 'CONCRETE CLUB CHAIR', aesthetic: 'MONOLITH', a_code: '2', r_code: '1', o_code: '1' }, // Living / Seating
     { id: 'ref-54102', title: 'MYCELIUM STOOL', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '1' }, // Living / Seating
@@ -278,10 +278,18 @@ function generateGridHTML(data, savedJournal) {
     return data.map(item => {
         const isLiked = savedJournal.includes(item.id);
         const activeClass = isLiked ? 'liked' : '';
+        
+        // NEW LOGIC: Check if the item has an image
+        // If yes: Render the <img> tag
+        // If no: Render the gray placeholder box
+        const mediaHTML = item.img 
+            ? `<img src="${item.img}" alt="${item.title}">` 
+            : `<div class="image-placeholder"><span>${item.id.toUpperCase()}</span></div>`;
+
         return `
         <div class="product-card">
             <div class="product-image-container">
-                <div class="image-placeholder"><span>${item.id.toUpperCase()}</span></div>
+                ${mediaHTML}
                 <button class="heart-btn ${activeClass}" onclick="toggleJournal(this, '${item.id}')">
                     <svg class="heart-icon" viewBox="0 0 24 24">
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
