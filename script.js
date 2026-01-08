@@ -1,4 +1,64 @@
 /* ==========================================================================
+   0. INITIAL PAGE LOAD
+   ========================================================================== */
+// Soft page reveal (runs on every page that includes script.js)
+(function softReveal() {
+  const content = document.querySelector(".page-content");
+  if (!content) return;
+
+  // Enable the CSS that hides/reveals .page-content
+  document.documentElement.classList.add("soft-reveal");
+
+  const show = () => content.classList.add("is-ready");
+
+  if (document.readyState === "complete") {
+    requestAnimationFrame(show);
+  } else {
+    window.addEventListener("load", () => requestAnimationFrame(show), { once: true });
+  }
+})();
+
+
+
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("a[href]");
+  if (!a) return;
+
+  const href = a.getAttribute("href");
+
+  // external / new tab: ignore
+  const isExternal = a.target === "_blank" || /^https?:\/\//.test(href);
+  if (isExternal) return;
+
+  // ✅ NEW: if it's the same document (e.g. index.html#archive-start while already on index.html),
+  // let the browser handle it (no fade-out)
+  try {
+    const url = new URL(a.href, window.location.href);
+    const sameDoc =
+      url.origin === window.location.origin &&
+      url.pathname === window.location.pathname &&
+      url.search === window.location.search;
+
+    if (sameDoc) return;
+  } catch {
+    // if URL parsing fails, do nothing special
+  }
+
+  // If it's ONLY a hash like "#top", also ignore
+  if (href.startsWith("#")) return;
+
+  // fade out + navigate (for real page changes)
+  e.preventDefault();
+document.querySelector(".page-content")?.classList.remove("is-ready");
+  setTimeout(() => (window.location.href = href), 220);
+});
+
+window.addEventListener("hashchange", () => {
+  document.querySelector(".page-content")?.classList.add("is-ready");
+});
+
+
+/* ==========================================================================
    1. DATA ARCHIVE (Single Source of Truth)
    ========================================================================== */
 const furnitureData = [

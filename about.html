@@ -11,178 +11,188 @@
     <link rel="stylesheet" href="style.css">
 
     <script>
-    (function() {
-        if (localStorage.getItem('studioTheme') === 'dark') {
-            document.documentElement.classList.add('dark');
-        }
-    })();
-</script>
+        (function () {
+            if (localStorage.getItem('studioTheme') === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
 </head>
 
 <body>
     <div id="top"></div>
     <nav class="nav-bridge">
-    <a href="#top" class="bridge-logo">THE STUDIO INDEX</a>
-    
-    <div class="bridge-right-zone">
-        <a href="index.html#archive-start" class="nav-link" onmouseenter="scrambleTrigger(this.querySelector('span'))">
-            <span data-true-word="ARCHIVE">ARCHIVE</span>
-        </a>
+        <a href="index.html" class="bridge-logo">THE STUDIO INDEX</a>
 
-        <a href="about.html" class="nav-link active" onmouseenter="scrambleTrigger(this.querySelector('span'))">
-            <span data-true-word="ABOUT">ABOUT</span>
-        </a>
-
-        <a href="journal.html" class="nav-link" onmouseenter="scrambleTrigger(this.querySelector('span'))">
-            <span data-true-word="JOURNAL">JOURNAL</span>
-            [ <span class="journal-count current-text" data-true-word="0">0</span> ]
-        </a>
-
-        <span class="nav-link" id="theme-toggle" onclick="toggleThemeTrigger(this)"
-            onmouseenter="scrambleTrigger(this.querySelector('.current-text'))" style="cursor:pointer;">
-            [ <span class="current-text" data-true-word="MODE: LIGHT">MODE: LIGHT</span> ]
-        </span>
-    </div>
-</nav>
-
-    <header>
-        <h1 class="footer-logo">METHODOLOGY</h1>
-        <div class="subtitle">An index of structural integrity and aesthetic permanence. Categorizing the built
-            environment by era, space, and typology.</div>
-    </header>
-
-    <main class="about-content-wrapper">
-        <div class="hero-container-refined">
-            <div class="placeholder-img hero-small"></div>
-        </div>
-
-        <div class="sticky-boundary">
-
-            <span class="section-title">01 / DATA STRUCTURE</span>
-            <div class="archive-logic">
-                <div class="logic-item">
-                    <span class="digit-box">1</span>
-                    <span class="logic-label">AESTHETIC ERA</span>
-                    <p class="logic-desc">Defines the core design philosophy and material palette of the object.</p>
-                </div>
-                <div class="logic-item">
-                    <span class="digit-box">2</span>
-                    <span class="logic-label">SPATIAL INTENT</span>
-                    <p class="logic-desc">Identifies the primary environment for which the piece was engineered.</p>
-                </div>
-                <div class="logic-item">
-                    <span class="digit-box">3</span>
-                    <span class="logic-label">OBJECT TYPOLOGY</span>
-                    <p class="logic-desc">Classifies the functional form, from seating to architectural accents.</p>
-                </div>
-                <div class="logic-item">
-                    <span class="digit-box">00</span>
-                    <span class="logic-label">CHRONOLOGICAL SEQUENCE</span>
-                    <p class="logic-desc">A unique identifier within the specific archival branch.</p>
-                </div>
-            </div>
-
-            <span class="section-title">02 / AESTHETIC PILLARS</span>
-            <div class="manifesto-list">
-
-                <div class="manifesto-row">
-                    <div class="manifesto-img-col">
-                        <div class="placeholder-img row-thumb"></div>
-                    </div>
-                    <div class="manifesto-text-col">
-                        <div class="manifesto-name">TECHNICAL</div>
-                        <div class="manifesto-body">The celebration of industrial precision. Focused on the interplay of
-                            light on machined surfaces—polished aluminum, stainless steel, and tensioned systems.</div>
-                    </div>
-                </div>
-
-                <div class="manifesto-row">
-                    <div class="manifesto-img-col">
-                        <div class="placeholder-img row-thumb"></div>
-                    </div>
-                    <div class="manifesto-text-col">
-                        <div class="manifesto-name">MONOLITH</div>
-                        <div class="manifesto-body">Honest materiality and permanent mass. We look for the tension
-                            between
-                            heavy stone—travertine and concrete—and the grounding presence of solid volume.</div>
-                    </div>
-                </div>
-
-                <div class="manifesto-row">
-                    <div class="manifesto-img-col">
-                        <div class="placeholder-img row-thumb"></div>
-                    </div>
-                    <div class="manifesto-text-col">
-                        <div class="manifesto-name">UTOPIAN POP</div>
-                        <div class="manifesto-body">The optimism of the space age. Characterized by glossy polymers,
-                            bold
-                            geometric forms, and the futuristic saturation of 1970s acrylics.</div>
-                    </div>
-                </div>
-
-                <div class="manifesto-row">
-                    <div class="manifesto-img-col">
-                        <div class="placeholder-img row-thumb"></div>
-                    </div>
-                    <div class="manifesto-text-col">
-                        <div class="manifesto-name">SOFT HERITAGE</div>
-                        <div class="manifesto-body">The soul of the archive. Focusing on dark burl woods, deep silk
-                            velvets,
-                            and the quiet luxury of objects with historical weight.</div>
-                    </div>
-                </div>
-
-                <div class="manifesto-row">
-                    <div class="manifesto-img-col">
-                        <div class="placeholder-img row-thumb"></div>
-                    </div>
-                    <div class="manifesto-text-col">
-                        <div class="manifesto-name">BIOMORPHIC</div>
-                        <div class="manifesto-body">Nature viewed through a microscope. Fluid lines, cellular
-                            structures,
-                            and organic geometry that challenges the rigidity of the built environment.</div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div id="empty-message" style="grid-column: 1/-1; text-align: center; padding: 100px 0;">
-            <p class="ref-id" style="opacity: 0.5; margin-bottom: 10px;">THANK YOU FOR CONSULTING THE ARCHIVE.</p>
-            <a href="index.html#archive-start" class="aesthetic-tag">
-                RETURN TO THE ARCHIVE TO START CURATING
+        <div class="bridge-right-zone">
+            <a href="index.html#archive-start" class="nav-link"
+                onmouseenter="scrambleTrigger(this.querySelector('span'))">
+                <span data-true-word="ARCHIVE">ARCHIVE</span>
             </a>
+
+            <a href="about.html" class="nav-link active" onmouseenter="scrambleTrigger(this.querySelector('span'))">
+                <span data-true-word="ABOUT">ABOUT</span>
+            </a>
+
+            <a href="journal.html" class="nav-link" onmouseenter="scrambleTrigger(this.querySelector('span'))">
+                <span data-true-word="JOURNAL">JOURNAL</span>
+                [ <span class="journal-count current-text" data-true-word="0">0</span> ]
+            </a>
+
+            <span class="nav-link" id="theme-toggle" onclick="toggleThemeTrigger(this)"
+                onmouseenter="scrambleTrigger(this.querySelector('.current-text'))" style="cursor:pointer;">
+                [ <span class="current-text" data-true-word="MODE: LIGHT">MODE: LIGHT</span> ]
+            </span>
         </div>
-    </main>
+    </nav>
 
-    <footer>
+    <div class="page-content">
 
-        <div class="footer-main">
-            <div class="footer-column brand-col">
-                <a href="index.html#top" class="footer-logo">©THE STUDIO INDEX</a>
-                <p class="footer-tagline">A curated directory of spatial design and refined objects.</p>
+
+        <header>
+            <h1 class="footer-logo">METHODOLOGY</h1>
+            <div class="subtitle">An index of structural integrity and aesthetic permanence. Categorizing the built
+                environment by era, space, and typology.</div>
+        </header>
+
+        <main class="about-content-wrapper">
+            <div class="hero-container-refined">
+                <div class="placeholder-img hero-small"></div>
             </div>
-            <div class="footer-column">
-                <span class="column-title">NAVIGATION</span>
-                <a href="about.html">About</a>
-                <a href="index.html#archive-start">The Archive</a>
+
+            <div class="sticky-boundary">
+
+                <span class="section-title">01 / DATA STRUCTURE</span>
+                <div class="archive-logic">
+                    <div class="logic-item">
+                        <span class="digit-box">1</span>
+                        <span class="logic-label">AESTHETIC ERA</span>
+                        <p class="logic-desc">Defines the core design philosophy and material palette of the object.</p>
+                    </div>
+                    <div class="logic-item">
+                        <span class="digit-box">2</span>
+                        <span class="logic-label">SPATIAL INTENT</span>
+                        <p class="logic-desc">Identifies the primary environment for which the piece was engineered.</p>
+                    </div>
+                    <div class="logic-item">
+                        <span class="digit-box">3</span>
+                        <span class="logic-label">OBJECT TYPOLOGY</span>
+                        <p class="logic-desc">Classifies the functional form, from seating to architectural accents.</p>
+                    </div>
+                    <div class="logic-item">
+                        <span class="digit-box">00</span>
+                        <span class="logic-label">CHRONOLOGICAL SEQUENCE</span>
+                        <p class="logic-desc">A unique identifier within the specific archival branch.</p>
+                    </div>
+                </div>
+
+                <span class="section-title">02 / AESTHETIC PILLARS</span>
+                <div class="manifesto-list">
+
+                    <div class="manifesto-row">
+                        <div class="manifesto-img-col">
+                            <div class="placeholder-img row-thumb"></div>
+                        </div>
+                        <div class="manifesto-text-col">
+                            <div class="manifesto-name">TECHNICAL</div>
+                            <div class="manifesto-body">The celebration of industrial precision. Focused on the
+                                interplay of
+                                light on machined surfaces—polished aluminum, stainless steel, and tensioned systems.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="manifesto-row">
+                        <div class="manifesto-img-col">
+                            <div class="placeholder-img row-thumb"></div>
+                        </div>
+                        <div class="manifesto-text-col">
+                            <div class="manifesto-name">MONOLITH</div>
+                            <div class="manifesto-body">Honest materiality and permanent mass. We look for the tension
+                                between
+                                heavy stone—travertine and concrete—and the grounding presence of solid volume.</div>
+                        </div>
+                    </div>
+
+                    <div class="manifesto-row">
+                        <div class="manifesto-img-col">
+                            <div class="placeholder-img row-thumb"></div>
+                        </div>
+                        <div class="manifesto-text-col">
+                            <div class="manifesto-name">UTOPIAN POP</div>
+                            <div class="manifesto-body">The optimism of the space age. Characterized by glossy polymers,
+                                bold
+                                geometric forms, and the futuristic saturation of 1970s acrylics.</div>
+                        </div>
+                    </div>
+
+                    <div class="manifesto-row">
+                        <div class="manifesto-img-col">
+                            <div class="placeholder-img row-thumb"></div>
+                        </div>
+                        <div class="manifesto-text-col">
+                            <div class="manifesto-name">SOFT HERITAGE</div>
+                            <div class="manifesto-body">The soul of the archive. Focusing on dark burl woods, deep silk
+                                velvets,
+                                and the quiet luxury of objects with historical weight.</div>
+                        </div>
+                    </div>
+
+                    <div class="manifesto-row">
+                        <div class="manifesto-img-col">
+                            <div class="placeholder-img row-thumb"></div>
+                        </div>
+                        <div class="manifesto-text-col">
+                            <div class="manifesto-name">BIOMORPHIC</div>
+                            <div class="manifesto-body">Nature viewed through a microscope. Fluid lines, cellular
+                                structures,
+                                and organic geometry that challenges the rigidity of the built environment.</div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="footer-column">
-                <span class="column-title">CONNECT</span>
-                <a href="https://pinterest.com" target="_blank">Pinterest</a>
-                <a href="https://instagram.com" target="_blank">Instagram</a>
+            <div id="empty-message" style="grid-column: 1/-1; text-align: center; padding: 100px 0;">
+                <p class="ref-id" style="opacity: 0.5; margin-bottom: 10px;">THANK YOU FOR CONSULTING THE ARCHIVE.</p>
+                <a href="index.html#archive-start" class="aesthetic-tag">
+                    RETURN TO THE ARCHIVE TO START CURATING
+                </a>
             </div>
-        </div>
+        </main>
 
-        <div class="disclosure">
-            <strong>A NOTE ON CURATION:</strong> The Studio Index is a curated archive of design and furniture. To
-            support our research and maintenance of this index, we participate in various affiliate programs. If you
-            purchase an object through our links, we may receive a commission at no additional cost to you. Every entry
-            is selected based on aesthetic merit and design integrity, independent of any retail partnership.
-        </div>
-    </footer>
+        <footer>
+
+            <div class="footer-main">
+                <div class="footer-column brand-col">
+                    <a href="index.html#top" class="footer-logo">©THE STUDIO INDEX</a>
+                    <p class="footer-tagline">A curated directory of spatial design and refined objects.</p>
+                </div>
+                <div class="footer-column">
+                    <span class="column-title">NAVIGATION</span>
+                    <a href="about.html">About</a>
+                    <a href="index.html#archive-start">The Archive</a>
+                </div>
+
+                <div class="footer-column">
+                    <span class="column-title">CONNECT</span>
+                    <a href="https://pinterest.com" target="_blank">Pinterest</a>
+                    <a href="https://instagram.com" target="_blank">Instagram</a>
+                </div>
+            </div>
+
+            <div class="disclosure">
+                <strong>A NOTE ON CURATION:</strong> The Studio Index is a curated archive of design and furniture. To
+                support our research and maintenance of this index, we participate in various affiliate programs. If you
+                purchase an object through our links, we may receive a commission at no additional cost to you. Every
+                entry
+                is selected based on aesthetic merit and design integrity, independent of any retail partnership.
+            </div>
+        </footer>
+
+    </div>
+
 
     <script src="script.js"></script>
 </body>
