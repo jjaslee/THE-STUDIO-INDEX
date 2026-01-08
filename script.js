@@ -4,43 +4,43 @@
 const furnitureData = [
     // --- LIVING ROOM ---
     { id: 'ref-14101', title: 'CHROME SLING CHAIR', aesthetic: 'TECHNICAL', a_code: '1', r_code: '1', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Living / Seating
-    { id: 'ref-34101', title: 'GLOSSY POLYMER LOUNGER', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '1', o_code: '1' , img: 'images/ref-14101-1.jpg' }, // Living / Seating
-    { id: 'ref-24101', title: 'CONCRETE CLUB CHAIR', aesthetic: 'MONOLITH', a_code: '2', r_code: '1', o_code: '1' , img: 'images/ref-14101-1.jpg' }, // Living / Seating
-    { id: 'ref-54102', title: 'MYCELIUM STOOL', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '1' , img: 'images/ref-14101-1.jpg' }, // Living / Seating
-    { id: 'ref-26201', title: 'RAW STONE CONSOLE', aesthetic: 'MONOLITH', a_code: '2', r_code: '1', o_code: '2' , img: 'images/ref-14101-1.jpg' }, // Living / Tables
+    { id: 'ref-34101', title: 'GLOSSY POLYMER LOUNGER', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '1', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Living / Seating
+    { id: 'ref-24101', title: 'CONCRETE CLUB CHAIR', aesthetic: 'MONOLITH', a_code: '2', r_code: '1', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Living / Seating
+    { id: 'ref-54102', title: 'MYCELIUM STOOL', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Living / Seating
+    { id: 'ref-26201', title: 'RAW STONE CONSOLE', aesthetic: 'MONOLITH', a_code: '2', r_code: '1', o_code: '2', img: 'images/ref-14101-1.jpg' }, // Living / Tables
 
     // --- DINING ROOM ---
-    { id: 'ref-21201', title: 'TRAVERTINE DINING TABLE', aesthetic: 'MONOLITH', a_code: '2', r_code: '2', o_code: '2' , img: 'images/ref-14101-1.jpg' }, // Dining / Tables
-    { id: 'ref-31101', title: 'TULIP DINING CHAIR', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '2', o_code: '1' , img: 'images/ref-14101-1.jpg' }, // Dining / Seating
-    { id: 'ref-41101', title: 'TAPESTRY DINING CHAIR', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '2', o_code: '1' , img: 'images/ref-14101-1.jpg' }, // Dining / Seating
+    { id: 'ref-21201', title: 'TRAVERTINE DINING TABLE', aesthetic: 'MONOLITH', a_code: '2', r_code: '2', o_code: '2', img: 'images/ref-14101-1.jpg' }, // Dining / Tables
+    { id: 'ref-31101', title: 'TULIP DINING CHAIR', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '2', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Dining / Seating
+    { id: 'ref-41101', title: 'TAPESTRY DINING CHAIR', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '2', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Dining / Seating
 
     // --- WORKSPACE ---
-    { id: 'ref-47201', title: 'BURL WOOD DESK', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '3', o_code: '2' , img: 'images/ref-14101-1.jpg' }, // Workspace / Tables
-    { id: 'ref-17301', title: 'ALUMINUM TASK LIGHT', aesthetic: 'TECHNICAL', a_code: '1', r_code: '3', o_code: '3' , img: 'images/ref-14101-1.jpg' }, // Workspace / Lighting
-    { id: 'ref-14401', title: 'STEEL MODULAR SHELF', aesthetic: 'TECHNICAL', a_code: '1', r_code: '3', o_code: '4' , img: 'images/ref-14101-1.jpg' }, // Workspace / Storage
+    { id: 'ref-47201', title: 'BURL WOOD DESK', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '3', o_code: '2', img: 'images/ref-14101-1.jpg' }, // Workspace / Tables
+    { id: 'ref-17301', title: 'ALUMINUM TASK LIGHT', aesthetic: 'TECHNICAL', a_code: '1', r_code: '3', o_code: '3', img: 'images/ref-14101-1.jpg' }, // Workspace / Lighting
+    { id: 'ref-14401', title: 'STEEL MODULAR SHELF', aesthetic: 'TECHNICAL', a_code: '1', r_code: '3', o_code: '4', img: 'images/ref-14101-1.jpg' }, // Workspace / Storage
 
     // --- BEDROOM ---
-    { id: 'ref-45101', title: 'VELVET BED FRAME', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '4', o_code: '1' , img: 'images/ref-14101-1.jpg' }, // Bedroom / Seating (Bed)
-    { id: 'ref-35301', title: 'ORBITER NIGHT LIGHT', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '4', o_code: '3' , img: 'images/ref-14101-1.jpg' }, // Bedroom / Lighting
-    { id: 'ref-54301', title: 'MELTED GLASS LAMP', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '4', o_code: '3' , img: 'images/ref-14101-1.jpg' }, // Bedroom / Lighting
-    { id: 'ref-44601', title: 'SILK AREA RUG', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '4', o_code: '5' , img: 'images/ref-14101-1.jpg' }, // Bedroom / Decor
+    { id: 'ref-45101', title: 'VELVET BED FRAME', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '4', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Bedroom / Seating (Bed)
+    { id: 'ref-35301', title: 'ORBITER NIGHT LIGHT', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '4', o_code: '3', img: 'images/ref-14101-1.jpg' }, // Bedroom / Lighting
+    { id: 'ref-54301', title: 'MELTED GLASS LAMP', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '4', o_code: '3', img: 'images/ref-14101-1.jpg' }, // Bedroom / Lighting
+    { id: 'ref-44601', title: 'SILK AREA RUG', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '4', o_code: '5', img: 'images/ref-14101-1.jpg' }, // Bedroom / Decor
 
     // --- CORRIDOR (Was Transit) ---
-    { id: 'ref-27401', title: 'HEAVY OAK CABINET', aesthetic: 'MONOLITH', a_code: '2', r_code: '5', o_code: '4' , img: 'images/ref-14101-1.jpg' }, // Corridor / Storage
-    { id: 'ref-13701', title: 'MACHINED DOOR HANDLE', aesthetic: 'TECHNICAL', a_code: '1', r_code: '5', o_code: '5' , img: 'images/ref-14101-1.jpg' }, // Corridor / Decor (Hardware)
+    { id: 'ref-27401', title: 'HEAVY OAK CABINET', aesthetic: 'MONOLITH', a_code: '2', r_code: '5', o_code: '4', img: 'images/ref-14101-1.jpg' }, // Corridor / Storage
+    { id: 'ref-13701', title: 'MACHINED DOOR HANDLE', aesthetic: 'TECHNICAL', a_code: '1', r_code: '5', o_code: '5', img: 'images/ref-14101-1.jpg' }, // Corridor / Decor (Hardware)
 
     // --- CLOSET (New!) ---
     // Added a few items here so the filter isn't empty:
-    { id: 'ref-66101', title: 'WALNUT VALET STAND', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '7', o_code: '4' , img: 'images/ref-14101-1.jpg' }, // Closet / Storage
-    { id: 'ref-66201', title: 'ACRYLIC HANGER SET', aesthetic: 'TECHNICAL', a_code: '1', r_code: '7', o_code: '5' , img: 'images/ref-14101-1.jpg' }, // Closet / Decor
+    { id: 'ref-66101', title: 'WALNUT VALET STAND', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '7', o_code: '4', img: 'images/ref-14101-1.jpg' }, // Closet / Storage
+    { id: 'ref-66201', title: 'ACRYLIC HANGER SET', aesthetic: 'TECHNICAL', a_code: '1', r_code: '7', o_code: '5', img: 'images/ref-14101-1.jpg' }, // Closet / Decor
 
     // --- EXTERIOR ---
-    { id: 'ref-77101', title: 'IRON GARDEN BENCH', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '6', o_code: '1' , img: 'images/ref-14101-1.jpg' }, // Exterior / Seating
-    
+    { id: 'ref-77101', title: 'IRON GARDEN BENCH', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '6', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Exterior / Seating
+
     // --- GENERAL DECOR ---
-    { id: 'ref-53501', title: '3D PRINTED SCULPTURE', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '5' , img: 'images/ref-14101-1.jpg' }, // Living / Decor
-    { id: 'ref-34501', title: 'NEON ACRYLIC VASE', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '1', o_code: '5' , img: 'images/ref-14101-1.jpg' }, // Living / Decor
-    { id: 'ref-51201', title: 'ORGANIC FORM TABLE', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '2' , img: 'images/ref-14101-1.jpg' }, // Living / Table
+    { id: 'ref-53501', title: '3D PRINTED SCULPTURE', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '5', img: 'images/ref-14101-1.jpg' }, // Living / Decor
+    { id: 'ref-34501', title: 'NEON ACRYLIC VASE', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '1', o_code: '5', img: 'images/ref-14101-1.jpg' }, // Living / Decor
+    { id: 'ref-51201', title: 'ORGANIC FORM TABLE', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '2', img: 'images/ref-14101-1.jpg' }, // Living / Table
 ];
 // State Management
 let activeFilters = { aesthetic: 'all', room: 'all', object: 'all' };
@@ -69,7 +69,7 @@ function shuffleString(str) {
  */
 function scrambleTrigger(element) {
     const target = element.querySelector('.current-text') || element;
-    
+
     // STOP any existing scramble so the new one takes over instantly
     if (target.dataset.intervalId) {
         clearInterval(Number(target.dataset.intervalId));
@@ -77,7 +77,7 @@ function scrambleTrigger(element) {
 
     const trueWord = target.dataset.trueWord || target.innerText;
     let count = 0;
-    
+
     const interval = setInterval(() => {
         target.innerText = shuffleString(trueWord);
         count++;
@@ -110,14 +110,14 @@ function renderArchiveGrid(data = furnitureData) {
     const isJournalPage = !!document.getElementById('journal-container');
 
     // 1. Context Check: Calculate what SHOULD be visible
-    let displayData = isJournalPage 
-        ? data.filter(item => savedJournal.includes(item.id)) 
+    let displayData = isJournalPage
+        ? data.filter(item => savedJournal.includes(item.id))
         : data;
 
     // 2. Handle Empty States (Keep your exact logic here)
     if (displayData.length === 0) {
         // Since there is nothing to animate, we can use innerHTML here safely
-        
+
         if (isJournalPage && savedJournal.length === 0) {
             // CASE A: The Journal is literally empty
             grid.innerHTML = `
@@ -139,7 +139,7 @@ function renderArchiveGrid(data = furnitureData) {
     // 3. INITIAL RENDER (If grid is empty or has an error message)
     // We render the HTML once so the elements exist in the DOM
     const hasErrorMsg = grid.querySelector('#empty-message') || grid.querySelector('.empty-filter-msg');
-    
+
     if (grid.children.length === 0 || hasErrorMsg) {
         // If we are on Archive, render ALL data initially so we can filter later.
         // If we are on Journal, render only the journal items.
@@ -147,24 +147,39 @@ function renderArchiveGrid(data = furnitureData) {
         grid.innerHTML = generateGridHTML(initialBatch, savedJournal);
     }
 
+    // Build a persistent cache of cards by id (so we can remove + re-add with animation)
+    if (!grid.__cardCache) grid.__cardCache = new Map();
+    grid.querySelectorAll(".product-card").forEach(card => {
+        grid.__cardCache.set(card.getAttribute("data-id"), card);
+    });
+
+
     // 4. THE ANIMATION LOOP (The Glide Effect)
     // Instead of rebuilding HTML, we move/hide existing elements.
-    
+
     const visibleIds = displayData.map(item => item.id);
-    const allCards = grid.querySelectorAll('.product-card');
+    const visibleSet = new Set(visibleIds);
 
-    allCards.forEach(card => {
-        const id = card.getAttribute('data-id');
-
-        if (visibleIds.includes(id)) {
-            // MATCH: Show it and move it to the correct sorted position
-            card.style.display = ''; 
-            grid.appendChild(card); // Moves the element physically, triggering the glide
-        } else {
-            // NO MATCH: Hide it
-            card.style.display = 'none';
+    // A) Fade-out removals: remove nodes that shouldn't be visible
+    for (const card of Array.from(grid.querySelectorAll(".product-card"))) {
+        const id = card.getAttribute("data-id");
+        if (!visibleSet.has(id)) {
+            card.remove(); // triggers "remove" animation
         }
-    });
+    }
+
+    // B) Stable reorder: only move if needed (prevents phantom top-left slides)
+    for (let i = 0; i < visibleIds.length; i++) {
+        const id = visibleIds[i];
+        const card = grid.__cardCache.get(id);
+        if (!card) continue;
+
+        const nodeCurrentlyAtIndex = grid.children[i];
+        if (nodeCurrentlyAtIndex !== card) {
+            grid.insertBefore(card, nodeCurrentlyAtIndex || null);
+        }
+    }
+
 }
 
 function resetFilters() {
@@ -176,13 +191,13 @@ function resetFilters() {
         const trigger = document.getElementById(`${type}-trigger`);
         if (trigger) {
             const textSpan = trigger.querySelector('.current-text');
-            
+
             // Set the target word to ALL
             textSpan.dataset.trueWord = 'ALL';
-            
+
             // Update the text immediately so the scrambler knows where to end
             textSpan.innerText = 'ALL';
-            
+
             // Clear any temporary hover states
             delete textSpan.dataset.savedWord;
 
@@ -210,17 +225,17 @@ function updateFilter(element, type) {
 
 // HOVER ENTER: Temporarily show the option on the bridge
 function previewOption(type, element) {
-    const rawText = element.innerText; 
+    const rawText = element.innerText;
     const cleanText = rawText.replace('[ ', '').replace(' ]', '');
-    
+
     const trigger = document.getElementById(`${type}-trigger`);
     const textSpan = trigger.querySelector('.current-text');
-    
+
     // Save the "Real" selection if not already saved
     if (!textSpan.dataset.savedWord) {
         textSpan.dataset.savedWord = textSpan.dataset.trueWord;
     }
-    
+
     // Set text to preview and scramble
     textSpan.dataset.trueWord = cleanText;
     scrambleTrigger(trigger);
@@ -230,7 +245,7 @@ function previewOption(type, element) {
 function revertOption(type) {
     const trigger = document.getElementById(`${type}-trigger`);
     const textSpan = trigger.querySelector('.current-text');
-    
+
     // Only revert if we have a saved state
     if (textSpan.dataset.savedWord) {
         // 1. STOP any running scramble from the preview immediately
@@ -241,12 +256,12 @@ function revertOption(type) {
 
         // 2. SNAP the text back to the original word instantly
         textSpan.innerText = textSpan.dataset.savedWord;
-        
+
         // 3. Reset the logic for the next time
         textSpan.dataset.trueWord = textSpan.dataset.savedWord;
-        
+
         // 4. Clear the temporary memory
-        delete textSpan.dataset.savedWord; 
+        delete textSpan.dataset.savedWord;
     }
 }
 /**
@@ -256,30 +271,30 @@ function selectOption(type, value, fullLabelText) {
     const cleanText = fullLabelText.replace('[ ', '').replace(' ]', '');
     const trigger = document.getElementById(`${type}-trigger`);
     const textSpan = trigger.querySelector('.current-text');
-    
+
     // 1. Update the permanent selection
     textSpan.innerText = cleanText;
     textSpan.dataset.trueWord = cleanText;
     activeFilters[type] = value;
-    
+
     // 2. Clear the "saved" word so the revert logic knows we committed
     delete textSpan.dataset.savedWord;
-    
+
     // 3. Trigger Scramble
     scrambleTrigger(trigger);
-    
+
     // 4. FORCE CLOSE THE MENU (The new logic)
     const dropdownGroup = trigger.closest('.custom-dropdown');
     const menu = dropdownGroup.querySelector('.dropdown-menu');
-    
+
     // Temporarily hide the menu using inline styles to override the CSS hover
     menu.style.display = 'none';
 
     // When the mouse leaves the area, clear the override so it works next time
     dropdownGroup.addEventListener('mouseleave', () => {
-        menu.style.display = ''; 
+        menu.style.display = '';
     }, { once: true }); // 'once: true' automatically removes this listener after it runs
-    
+
     // 5. Filter Grid
     const filtered = furnitureData.filter(item => {
         const matchA = activeFilters.aesthetic === 'all' || item.a_code === activeFilters.aesthetic;
@@ -289,6 +304,7 @@ function selectOption(type, value, fullLabelText) {
     });
 
     renderArchiveGrid(filtered);
+    requestAnimationFrame(scrollToArchiveStart);
 }
 
 /**
@@ -301,17 +317,17 @@ function generateGridHTML(data, savedJournal) {
     return data.map(item => {
         const isLiked = savedJournal.includes(item.id);
         const activeClass = isLiked ? 'liked' : '';
-        
+
         // 1. PREPARE CUSTOM STYLES (Zoom & Crop)
         // We build a style string to handle specific zoom levels or positions per item
         let imgStyles = '';
         if (item.position) imgStyles += `object-position: ${item.position};`;
-        if (item.zoom)     imgStyles += `--img-scale: ${item.zoom};`;
+        if (item.zoom) imgStyles += `--img-scale: ${item.zoom};`;
 
         // 2. MEDIA LOGIC
         // Added 'loading="lazy"' for speed and 'style' for the zoom effects
-        const mediaHTML = item.img 
-            ? `<img src="${item.img}" alt="${item.title}" style="${imgStyles}" loading="lazy">` 
+        const mediaHTML = item.img
+            ? `<img src="${item.img}" alt="${item.title}" style="${imgStyles}" loading="lazy">`
             : `<div class="image-placeholder"><span>${item.id.toUpperCase()}</span></div>`;
 
         return `
@@ -343,7 +359,7 @@ function toggleJournal(event, btn, id) {
     // 2. Get the current saved list (Using the CORRECT key 'studioJournal')
     let saved = JSON.parse(localStorage.getItem('studioJournal')) || [];
     const index = saved.indexOf(id);
-    
+
     // Track if we are removing an item
     let isRemoving = false;
 
@@ -351,12 +367,12 @@ function toggleJournal(event, btn, id) {
     if (index > -1) {
         // ITEM EXISTS: Remove it
         saved.splice(index, 1);
-        btn.classList.remove('liked'); 
+        btn.classList.remove('liked');
         isRemoving = true; // Mark as removed
     } else {
         // ITEM NEW: Add it
         saved.push(id);
-        btn.classList.add('liked');    
+        btn.classList.add('liked');
     }
 
     // 4. Save back to memory
@@ -370,11 +386,11 @@ function toggleJournal(event, btn, id) {
     // --- NEW LOGIC: VISUAL REMOVAL FOR JOURNAL PAGE ---
     // We check if the special 'journal-container' exists (meaning we are on the Journal Page)
     const journalContainer = document.getElementById('journal-container');
-    
+
     if (journalContainer && isRemoving) {
         // A. Find the card that belongs to this button
         const card = btn.closest('.product-card');
-        
+
         // B. Remove it from the screen immediately (Poof!)
         if (card) {
             card.remove();
@@ -383,7 +399,7 @@ function toggleJournal(event, btn, id) {
         // C. Special Check: If you deleted the last item, show the "Empty" message
         // We count how many cards are left. If 0, we force a refresh to show the text.
         if (journalContainer.querySelectorAll('.product-card').length === 0) {
-            renderArchiveGrid(); 
+            renderArchiveGrid();
         }
     }
 }
@@ -391,7 +407,7 @@ function toggleJournal(event, btn, id) {
 function updateJournalCount() {
     const journal = JSON.parse(localStorage.getItem('studioJournal')) || [];
     const countElements = document.querySelectorAll('.journal-count'); // Target class instead of generic selector
-    
+
     countElements.forEach(el => {
         el.innerText = journal.length;
         el.dataset.trueWord = journal.length.toString(); // For scrambler
@@ -435,7 +451,7 @@ function applyCurrentFilters() {
             const matchAesthetic = activeAesthetic === 'all' || item.aesthetic === activeAesthetic;
             // Note: Ensure your room buttons use the exact code found in furnitureData.r_code
             const matchRoom = activeRoom === 'all' || item.r_code === activeRoom;
-            
+
             return matchAesthetic && matchRoom;
         });
 
@@ -463,13 +479,13 @@ function initTheme() {
     const textSpan = toggleBtn ? toggleBtn.querySelector('.current-text') : null;
 
     if (savedTheme === 'dark') {
-        document.body.classList.add('dark');
+        document.documentElement.classList.add('dark');
         if (textSpan) {
             textSpan.innerText = "MODE: DARK";
             textSpan.dataset.trueWord = "MODE: DARK";
         }
     } else {
-        document.body.classList.remove('dark');
+        document.documentElement.classList.remove('dark');
         if (textSpan) {
             textSpan.innerText = "MODE: LIGHT";
             textSpan.dataset.trueWord = "MODE: LIGHT";
@@ -478,66 +494,126 @@ function initTheme() {
 }
 
 function toggleThemeTrigger(element) {
-    // 1. Toggle Body Class
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    
-    // 2. Save to Memory
+    const isDark = document.documentElement.classList.toggle('dark');
     localStorage.setItem('studioTheme', isDark ? 'dark' : 'light');
 
-    // 3. Update Text & Scramble Reference
     const textSpan = element.querySelector('.current-text');
     const newLabel = isDark ? "MODE: DARK" : "MODE: LIGHT";
-    
+
     textSpan.dataset.trueWord = newLabel;
     textSpan.innerText = newLabel;
-    
-    // 4. Trigger Effect
+
     scrambleTrigger(element);
 }
 
 /* ==========================================================================
    5. INITIALIZATION & ANIMATION SETUP
    ========================================================================== */
-let animateGrid; // Global variable for the animation engine
+let animateGrid;
 
 document.addEventListener('DOMContentLoaded', async () => {
-    
-    // --- STEP 1: LOAD ANIMATION ---
     try {
         const { default: autoAnimate } = await import('https://cdn.jsdelivr.net/npm/@formkit/auto-animate/index.min.js');
         animateGrid = autoAnimate;
-        
+
         const archiveGrid = document.getElementById('archive-grid');
         const journalGrid = document.getElementById('journal-container');
-        
-        // --- CONFIGURATION: SLOW DOWN ANIMATION ---
-        // duration: 800ms (0.8s) makes it look like a smooth glide
-        const config = { 
-    duration: 700, 
-    // This curve starts quick but creates a long, smooth braking effect
-    easing: 'cubic-bezier(0.25, 1, 0.5, 1)' 
-};
 
-        if (archiveGrid) animateGrid(archiveGrid, config);
-        if (journalGrid) animateGrid(journalGrid, config);
-        
+        // PURE FADE LOGIC: No coordinate math, just opacity
+        // ELEGANT LOGIC: add = fade in, remove = fade out, remain = glide
+        // add = ease in
+        // remove = ease out
+        // remain = glide
+        const elegantAnimation = (el, action, oldCoords, newCoords) => {
+            // add = ease in
+
+            const T_OUT = 260;   // fade out (soft)
+            const T_MOVE = 870;  // glide (luxury)
+            const T_IN = 320;    // fade in (soft)
+            const GAP = 120;     // breath (prevents overlap)
+
+
+
+            if (action === "add") {
+                const keyframes = [
+                    { opacity: 0, transform: "translateY(5px) scale(0.995)" },
+                    { opacity: 1, transform: "translateY(0px) scale(1)" },
+                ];
+                const options = {
+                    duration: T_IN,
+                    delay: GAP,
+                    easing: "cubic-bezier(0.16, 1, 0.3, 1)", // buttery ease-out
+                    fill: "both",
+                };
+
+                return new KeyframeEffect(el, keyframes, options);
+            }
+
+            // remove = ease out
+            if (action === "remove") {
+                const keyframes = [
+                    { opacity: 1, transform: "translateY(0px) scale(1)" },
+                    { opacity: 0, transform: "translateY(5px) scale(0.995)" },
+                ];
+
+                const options = {
+                    duration: T_OUT,
+                    easing: "cubic-bezier(0.7, 0, 0.84, 0)", // gentle ease-in
+                    fill: "both",
+                };
+
+                return new KeyframeEffect(el, keyframes, options);
+            }
+
+            // remain = glide
+            if (action === "remain" && oldCoords && newCoords) {
+                let dx = oldCoords.left - newCoords.left;
+                let dy = oldCoords.top - newCoords.top;
+
+                if (Math.abs(dx) > Math.abs(dy)) {
+                    dy = 0;
+                } else {
+                    dx = 0;
+                }
+
+                const keyframes = [
+                    { transform: `translate(${dx}px, ${dy}px)` },
+                    { transform: "translate(0,0)" },
+                ];
+                const options = {
+                    duration: T_MOVE,
+                    delay: GAP,
+                    easing: "cubic-bezier(0.16, 1, 0.3, 1)", // match add
+                    fill: "both",
+                };
+
+                return new KeyframeEffect(el, keyframes, options);
+            }
+
+            // fallback: no animation
+            return new KeyframeEffect(el, [{ opacity: 1 }, { opacity: 1 }], { duration: 0 });
+
+
+        };
+
+
+        if (archiveGrid) animateGrid(archiveGrid, elegantAnimation);
+        if (journalGrid) animateGrid(journalGrid, elegantAnimation);
+
+
+
+        // Start engine
+        renderArchiveGrid();
+        updateJournalCount();
+        initTheme();
+
     } catch (error) {
         console.warn("Animation library failed to load.", error);
-        animateGrid = () => {}; 
+        renderArchiveGrid();
+        updateJournalCount();
+        initTheme();
     }
 
-    // --- STEP 2: PREPARE THE GRID ---
-    const gridToClean = document.getElementById('archive-grid') || document.getElementById('journal-container');
-    if (gridToClean) {
-        gridToClean.innerHTML = ''; 
-    }
-
-    // --- STEP 3: START THE ENGINE ---
-    renderArchiveGrid();
-    updateJournalCount();
-    initTheme();
-    
     // --- STEP 4: SMOOTH SCROLL ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -550,6 +626,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 });
+
+
+function scrollToArchiveStart() {
+    const target =
+        document.getElementById("archive-start") || // if you have an element with this id
+        document.querySelector('[id="archive-start"]') ||
+        document.getElementById("archive-grid") ||  // fallback
+        document.querySelector(".archive-grid");
+
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 
 /* ==========================================================================
    6. EXPOSE FUNCTIONS TO HTML

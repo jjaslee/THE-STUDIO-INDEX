@@ -15,6 +15,25 @@ body.dark {
     --border: #2A2A2A;
 }
 
+/* Change body.dark to html.dark */
+html.dark {
+    --bg: #121212;
+    --text: #E0E0E0;
+    --muted: #666666;
+    --border: #2A2A2A;
+}
+
+/* Force instant background color on html tag */
+html {
+    background-color: var(--bg);
+}
+
+.product-card {
+    /* Ensure there are no transitions fighting the JS fade */
+    transition: opacity 0.3s ease !important;
+    will-change: opacity;
+}
+
 /* Add this at the very top of your CSS file */
 html {
     scroll-behavior: smooth;
@@ -40,7 +59,7 @@ body {
     z-index: 1300;
     background: var(--bg);
     border-bottom: 1px solid var(--border);
-    padding: 12px 5%;
+    padding: 14px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
