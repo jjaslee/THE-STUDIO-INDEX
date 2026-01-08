@@ -28,6 +28,12 @@ html {
     background-color: var(--bg);
 }
 
+html,
+body {
+    overflow-anchor: none;
+}
+
+
 .product-card {
     /* Ensure there are no transitions fighting the JS fade */
     transition: opacity 0.3s ease !important;
@@ -108,30 +114,37 @@ body {
 /* Ensure the grid updates feel high-end */
 .product-card {
 
-    position: relative; /* CRITICAL for z-index to work */
-    z-index: 1;         /* Default layer */
+    position: relative;
+    /* CRITICAL for z-index to work */
+    z-index: 1;
+    /* Default layer */
     /* transition: opacity 0.4s ease, transform 0.4s ease; */
-    
+
     transition: none !important;
     transform-origin: center center;
-    backface-visibility: hidden; /* Helps smooth out movements */
+    backface-visibility: hidden;
+    /* Helps smooth out movements */
 }
 
 
 
 .product-card:hover {
-    z-index: 50; 
+    z-index: 50;
 }
 
 /* 2. The Trigger: When you hover the CARD, zoom the IMAGE */
 .product-card:hover .image-placeholder,
 
 .product-card:hover .product-image-container {
-    transform: scale(1.04); /* Grows the whole square by 15% */
-    box-shadow: 0 7px 20px rgba(35, 35, 35, 0.15); /* Adds a luxury shadow */
+    transform: scale(1.04);
+    /* Grows the whole square by 15% */
+    box-shadow: 0 7px 20px rgba(35, 35, 35, 0.15);
+    /* Adds a luxury shadow */
 }
+
 .product-card:hover .product-image-container img {
-    transform: scale(1.03); /* Enlarge by 5% */
+    transform: scale(1.03);
+    /* Enlarge by 5% */
 }
 
 
@@ -199,12 +212,15 @@ body {
 /* FIX: Lock width to 1 character and KILL the 40px gap override */
 .journal-count {
     display: inline-block;
-    width: 2ch;           /* Keeps it tight like [0] */
-    min-width: 0 !important; /* CRITICAL: This forces it to ignore the 40px rule */
-    text-align: center; 
+    width: 2ch;
+    /* Keeps it tight like [0] */
+    min-width: 0 !important;
+    /* CRITICAL: This forces it to ignore the 40px rule */
+    text-align: center;
     white-space: pre;
     margin: 0;
 }
+
 /* Ensure the logo on the left doesn't scramble/shift */
 .bridge-logo {
     text-decoration: none;
@@ -249,6 +265,11 @@ h1 {
     /* Ensures the border spans the width correctly */
 }
 
+#journal-filter-anchor {
+    scroll-margin-top: 45px;
+    /* MUST match .filter-bridge { top: 45px } */
+}
+
 /* FILTER BRIDGE */
 /* Tightens the container spacing */
 /* FILTER BRIDGE */
@@ -263,9 +284,6 @@ h1 {
     gap: 40px;
     padding: 15px 5%;
     border-bottom: 1px solid var(--border);
-}
-
-.filter-bridge {
     justify-content: center;
     gap: 50px;
     /* Wider gap for clarity */
@@ -386,7 +404,8 @@ h1 {
 #room-trigger .current-text,
 #object-trigger .current-text {
     display: inline-block;
-    width: 14ch;         /* 14 chars covers your longest word perfectly */
+    width: 14ch;
+    /* 14 chars covers your longest word perfectly */
     text-align: center;
     white-space: pre;
 }
@@ -415,15 +434,24 @@ h1 {
 
 /* 2. THE MOVING TRACK */
 .carousel-track {
-    display: flex;
-    width: max-content;
-    gap: 40px;
-    /* Closer spacing for elegance */
-    animation: continuousSlide 80s linear infinite;
-    /* Slower, more "museum" crawl */
-    pointer-events: auto;
-    align-items: center;
+  display: flex;
+  width: max-content;
+  gap: 40px;
+  align-items: center;
+  will-change: transform;
+
+  animation-name: continuousSlide;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* do NOT set animation-duration here */
+
+  animation-duration: 60s; /* fallback */
+    pointer-events: none;
+
+
 }
+
+
 
 /* Pause trigger */
 .carousel-track:has(.carousel-item:hover) {
@@ -441,6 +469,7 @@ h1 {
     /* Slower, smoother transition */
     cursor: pointer;
     overflow: hidden;
+    pointer-events: auto;
 }
 
 /* SUBTLE ENLARGE EFFECT */
@@ -486,14 +515,13 @@ h1 {
 
 /* 6. INFINITE MOVEMENT */
 @keyframes continuousSlide {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-1 * var(--loop-distance, 0px))); }
 }
+
+
+
+
 
 
 /* THE MASTER ARCHIVE GRID */
@@ -508,7 +536,9 @@ h1 {
     transition: opacity 0.3s ease;
     /* Maintain your grid layout here */
     padding-bottom: 50px;
+    overflow-anchor: none;
 }
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -543,12 +573,15 @@ h1 {
 }
 
 .product-image-container img {
-    transition: transform 0.6s ease; /* Slow, smooth movement */
+    transition: transform 0.6s ease;
+    /* Slow, smooth movement */
     transform-origin: center center;
     width: 100%;
     height: 100%;
-    object-fit: cover;    /* crucial: crops the image to fill the square without stretching */
-    display: block;       /* removes tiny gaps below images */
+    object-fit: cover;
+    /* crucial: crops the image to fill the square without stretching */
+    display: block;
+    /* removes tiny gaps below images */
     object-position: center bottom;
 }
 
@@ -669,12 +702,14 @@ footer {
     flex-direction: column;
     width: 100%;
     overflow: hidden;
-    aspect-ratio: 1 / 1; /* <--- ADDS THE SQUARE SHAPE FORCEFULLY */
-    margin-bottom: 15px; /* Adds the spacing the placeholder used to provide */
+    aspect-ratio: 1 / 1;
+    /* <--- ADDS THE SQUARE SHAPE FORCEFULLY */
+    margin-bottom: 15px;
+    /* Adds the spacing the placeholder used to provide */
 
     transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
     transform-origin: center center;
-    
+
 }
 
 .heart-btn {
@@ -744,17 +779,21 @@ header .footer-logo {
    ========================================= */
 /* Ensure the empty message maintains structure if it tries to animate */
 .empty-filter-msg {
-    width: 100%;       /* Force full width so it doesn't shrink */
-    left: 0 !important; /* Force it to stay on the left edge if it becomes absolute */
-    transform: none !important; /* Ban movement */
+    width: 100%;
+    /* Force full width so it doesn't shrink */
+    left: 0 !important;
+    /* Force it to stay on the left edge if it becomes absolute */
+    transform: none !important;
+    /* Ban movement */
 }
+
 #empty-message {
     /* 1. Force the element to stay exactly where it is */
-    transform: none !important; 
-    
+    transform: none !important;
+
     /* 2. (Optional) Make it disappear instantly or fade out */
     transition: opacity 0.2s ease !important;
-    
+
     /* 3. Ensure it stays centered during the split second it's being removed */
     width: 100%;
     margin: 0 auto;
@@ -782,7 +821,7 @@ header .footer-logo {
     /* Increased side padding to 15% for maximum breathability */
     padding: 5px 15% 100px 15%;
     text-align: left;
-    padding-bottom: 0px;    
+    padding-bottom: 0px;
 
 }
 
@@ -815,27 +854,29 @@ header .footer-logo {
     position: relative;
     /* This padding ensures the title doesn't unstick until 
        the bottom margin of the pillars is reached */
-    padding-bottom: 80px; 
+    padding-bottom: 80px;
     border-bottom: 1px solid var(--border);
-    
+
 }
 
 /* 2. Updated Section Title */
 .section-title {
-    position: -webkit-sticky; /* Safari support */
+    position: -webkit-sticky;
+    /* Safari support */
     position: sticky;
-    top: 45px; /* Sits exactly under your nav-bridge (which is about 45-50px tall) */
+    top: 45px;
+    /* Sits exactly under your nav-bridge (which is about 45-50px tall) */
     z-index: 10;
-    
+
     /* We use the background color here to hide content scrolling behind it */
     background-color: var(--bg);
-    
+
     font-family: var(--mono);
     font-size: 10px;
     color: var(--muted);
     letter-spacing: 0.2em;
     display: block;
-    
+
     /* This border separates it from the content as it sticks */
     border-bottom: 1px solid var(--border);
     padding: 20px 0 10px 0;
@@ -951,34 +992,39 @@ header .footer-logo {
 
 /* Centers the empty message vertically on the screen */
 #journal-container:empty {
-    display: none; /* Hide if truly empty to let the message take over */
+    display: none;
+    /* Hide if truly empty to let the message take over */
 }
 
 /* If the empty message is the only thing there, center it */
 main.archive-grid {
-    min-height: 0; /* Remove forced height */
+    min-height: 0;
+    /* Remove forced height */
 }
 
 /* "Clear Filters" Button Style */
 .clear-filters-btn {
-    font-family: var(--sans); /* Matches your site font */
+    font-family: var(--sans);
+    /* Matches your site font */
     font-size: 10px;
     margin-top: 15px;
     cursor: pointer;
     text-decoration: underline;
-    opacity: 0.4;       /* Default: Light/Dim */
+    opacity: 0.4;
+    /* Default: Light/Dim */
     transition: opacity 0.3s ease;
 }
 
 .clear-filters-btn:hover {
-    opacity: 1;         /* Hover: Dark/Visible */
+    opacity: 1;
+    /* Hover: Dark/Visible */
 }
 
 
 /* SAFARI FIX: 
    Prevents the text interaction from blocking the click 
    while it is scrambling. */
-.nav-link span, 
+.nav-link span,
 .current-text {
     pointer-events: none;
 }

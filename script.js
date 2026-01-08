@@ -289,6 +289,13 @@ function selectOption(type, value, fullLabelText) {
 
     // Temporarily hide the menu using inline styles to override the CSS hover
     menu.style.display = 'none';
+    // Prevent the browser from snapping back to the clicked dropdown item
+    if (document.activeElement && typeof document.activeElement.blur === "function") {
+        document.activeElement.blur();
+    }
+    menu.style.pointerEvents = "none";
+    setTimeout(() => { menu.style.pointerEvents = ""; }, 350);
+
 
     // When the mouse leaves the area, clear the override so it works next time
     dropdownGroup.addEventListener('mouseleave', () => {
@@ -303,9 +310,24 @@ function selectOption(type, value, fullLabelText) {
         return matchA && matchR && matchO;
     });
 
-    renderArchiveGrid(filtered);
-    requestAnimationFrame(scrollToArchiveStart);
+    // --- 5. BEFORE re-render: prevent browser "keep focused item in view" behavior ---
+    if (document.activeElement && typeof document.activeElement.blur === "function") {
+        document.activeElement.blur();
+    }
+
+    // Decide where we want to land
+    const isJournalPage = !!document.getElementById("journal-container");
+
+    if (isJournalPage) {
+        scrollToJournalFilters();
+    } else {
+        scrollToArchiveStart();
+    }
+
+
 }
+
+
 
 /**
  * Toggles item in localStorage and updates UI immediately
@@ -639,6 +661,19 @@ function scrollToArchiveStart() {
     target.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+function scrollToJournalFilters() {
+    const anchor = document.getElementById("journal-filter-anchor");
+    if (!anchor) return;
+
+    anchor.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+    });
+}
+
+
+
+
 
 /* ==========================================================================
    6. EXPOSE FUNCTIONS TO HTML
@@ -649,3 +684,65 @@ window.resetFilters = resetFilters;
 window.updateFilter = updateFilter;
 window.selectOption = selectOption;
 window.toggleThemeTrigger = toggleThemeTrigger;
+
+/* ==========================================================================
+   7. CAROUSEL
+   ========================================================================== */
+function initSeamlessCarousel() {
+  const track = document.getElementById("carousel-track");
+  if (!track) return;
+
+  // Save the "true original" markup once
+  if (!track.dataset.originalHtml) {
+    track.dataset.originalHtml = track.innerHTML;
+  }
+
+  const rebuild = async () => {
+    // Stop animation cleanly (prevents mid-cycle jump)
+    track.style.animation = "none";
+    track.offsetHeight; // force reflow
+
+    // Reset to the true original set (always 3 items)
+    track.innerHTML = track.dataset.originalHtml;
+
+    // Wait for images so widths don't change after measuring
+    const imgs = Array.from(track.querySelectorAll("img"));
+    await Promise.allSettled(imgs.map(img => (img.decode ? img.decode() : Promise.resolve())));
+
+    const originals = Array.from(track.children);
+    if (!originals.length) return;
+
+    // Measure width of ONE set
+    const first = originals[0];
+    const last = originals[originals.length - 1];
+    const setWidth = last.getBoundingClientRect().right - first.getBoundingClientRect().left;
+    if (setWidth <= 0) return;
+
+    const viewport = track.parentElement?.getBoundingClientRect().width || window.innerWidth;
+
+    // Clone sets until there is never a gap
+    while (track.scrollWidth < viewport + setWidth * 2) {
+      originals.forEach(node => track.appendChild(node.cloneNode(true)));
+    }
+
+    // Apply loop distance + premium speed
+    track.style.setProperty("--loop-distance", `${setWidth}px`);
+    const speed = 28; // px/sec (slow = luxe)
+    track.style.animationDuration = `${setWidth / speed}s`;
+
+    // Restart animation
+    track.style.animation = "";
+  };
+
+  // Build once
+  rebuild();
+
+  // Rebuild on resize (debounced)
+  let t = 0;
+  window.addEventListener("resize", () => {
+    clearTimeout(t);
+    t = setTimeout(rebuild, 120);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", initSeamlessCarousel);
