@@ -384,8 +384,13 @@ function selectOption(type, value, fullLabelText) {
         scrollToArchiveStart();
     }
 
+    applyCurrentFilters();
+
+
 
 }
+
+
 
 
 
