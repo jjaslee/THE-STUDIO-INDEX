@@ -3,105 +3,67 @@
    ========================================================================== */
 // Soft page reveal (runs on every page that includes script.js)
 (function softReveal() {
-  const content = document.querySelector(".page-content");
-  if (!content) return;
+    const content = document.querySelector(".page-content");
+    if (!content) return;
 
-  // Enable the CSS that hides/reveals .page-content
-  document.documentElement.classList.add("soft-reveal");
+    // Enable the CSS that hides/reveals .page-content
+    document.documentElement.classList.add("soft-reveal");
 
-  const show = () => content.classList.add("is-ready");
+    const show = () => content.classList.add("is-ready");
 
-  if (document.readyState === "complete") {
-    requestAnimationFrame(show);
-  } else {
-    window.addEventListener("load", () => requestAnimationFrame(show), { once: true });
-  }
+    if (document.readyState === "complete") {
+        requestAnimationFrame(show);
+    } else {
+        window.addEventListener("load", () => requestAnimationFrame(show), { once: true });
+    }
 })();
 
 
 
+
 document.addEventListener("click", (e) => {
-  const a = e.target.closest("a[href]");
-  if (!a) return;
+    const a = e.target.closest("a[href]");
+    if (!a) return;
 
-  const href = a.getAttribute("href");
+    const href = a.getAttribute("href");
 
-  // external / new tab: ignore
-  const isExternal = a.target === "_blank" || /^https?:\/\//.test(href);
-  if (isExternal) return;
+    // external / new tab: ignore
+    const isExternal = a.target === "_blank" || /^https?:\/\//.test(href);
+    if (isExternal) return;
 
-  // ✅ NEW: if it's the same document (e.g. index.html#archive-start while already on index.html),
-  // let the browser handle it (no fade-out)
-  try {
-    const url = new URL(a.href, window.location.href);
-    const sameDoc =
-      url.origin === window.location.origin &&
-      url.pathname === window.location.pathname &&
-      url.search === window.location.search;
+    // ✅ NEW: if it's the same document (e.g. index.html#archive-start while already on index.html),
+    // let the browser handle it (no fade-out)
+    try {
+        const url = new URL(a.href, window.location.href);
+        const sameDoc =
+            url.origin === window.location.origin &&
+            url.pathname === window.location.pathname &&
+            url.search === window.location.search;
 
-    if (sameDoc) return;
-  } catch {
-    // if URL parsing fails, do nothing special
-  }
+        if (sameDoc) return;
+    } catch {
+        // if URL parsing fails, do nothing special
+    }
 
-  // If it's ONLY a hash like "#top", also ignore
-  if (href.startsWith("#")) return;
+    // If it's ONLY a hash like "#top", also ignore
+    if (href.startsWith("#")) return;
 
-  // fade out + navigate (for real page changes)
-  e.preventDefault();
-document.querySelector(".page-content")?.classList.remove("is-ready");
-  setTimeout(() => (window.location.href = href), 220);
+    // fade out + navigate (for real page changes)
+    e.preventDefault();
+    document.querySelector(".page-content")?.classList.remove("is-ready");
+    setTimeout(() => (window.location.href = href), 220);
 });
 
 window.addEventListener("hashchange", () => {
-  document.querySelector(".page-content")?.classList.add("is-ready");
+    document.querySelector(".page-content")?.classList.add("is-ready");
 });
 
 
 /* ==========================================================================
    1. DATA ARCHIVE (Single Source of Truth)
    ========================================================================== */
-const furnitureData = [
-    // --- LIVING ROOM ---
-    { id: 'ref-14101', title: 'CHROME SLING CHAIR', aesthetic: 'TECHNICAL', a_code: '1', r_code: '1', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Living / Seating
-    { id: 'ref-34101', title: 'GLOSSY POLYMER LOUNGER', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '1', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Living / Seating
-    { id: 'ref-24101', title: 'CONCRETE CLUB CHAIR', aesthetic: 'MONOLITH', a_code: '2', r_code: '1', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Living / Seating
-    { id: 'ref-54102', title: 'MYCELIUM STOOL', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Living / Seating
-    { id: 'ref-26201', title: 'RAW STONE CONSOLE', aesthetic: 'MONOLITH', a_code: '2', r_code: '1', o_code: '2', img: 'images/ref-14101-1.jpg' }, // Living / Tables
 
-    // --- DINING ROOM ---
-    { id: 'ref-21201', title: 'TRAVERTINE DINING TABLE', aesthetic: 'MONOLITH', a_code: '2', r_code: '2', o_code: '2', img: 'images/ref-14101-1.jpg' }, // Dining / Tables
-    { id: 'ref-31101', title: 'TULIP DINING CHAIR', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '2', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Dining / Seating
-    { id: 'ref-41101', title: 'TAPESTRY DINING CHAIR', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '2', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Dining / Seating
-
-    // --- WORKSPACE ---
-    { id: 'ref-47201', title: 'BURL WOOD DESK', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '3', o_code: '2', img: 'images/ref-14101-1.jpg' }, // Workspace / Tables
-    { id: 'ref-17301', title: 'ALUMINUM TASK LIGHT', aesthetic: 'TECHNICAL', a_code: '1', r_code: '3', o_code: '3', img: 'images/ref-14101-1.jpg' }, // Workspace / Lighting
-    { id: 'ref-14401', title: 'STEEL MODULAR SHELF', aesthetic: 'TECHNICAL', a_code: '1', r_code: '3', o_code: '4', img: 'images/ref-14101-1.jpg' }, // Workspace / Storage
-
-    // --- BEDROOM ---
-    { id: 'ref-45101', title: 'VELVET BED FRAME', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '4', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Bedroom / Seating (Bed)
-    { id: 'ref-35301', title: 'ORBITER NIGHT LIGHT', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '4', o_code: '3', img: 'images/ref-14101-1.jpg' }, // Bedroom / Lighting
-    { id: 'ref-54301', title: 'MELTED GLASS LAMP', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '4', o_code: '3', img: 'images/ref-14101-1.jpg' }, // Bedroom / Lighting
-    { id: 'ref-44601', title: 'SILK AREA RUG', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '4', o_code: '5', img: 'images/ref-14101-1.jpg' }, // Bedroom / Decor
-
-    // --- CORRIDOR (Was Transit) ---
-    { id: 'ref-27401', title: 'HEAVY OAK CABINET', aesthetic: 'MONOLITH', a_code: '2', r_code: '5', o_code: '4', img: 'images/ref-14101-1.jpg' }, // Corridor / Storage
-    { id: 'ref-13701', title: 'MACHINED DOOR HANDLE', aesthetic: 'TECHNICAL', a_code: '1', r_code: '5', o_code: '5', img: 'images/ref-14101-1.jpg' }, // Corridor / Decor (Hardware)
-
-    // --- CLOSET (New!) ---
-    // Added a few items here so the filter isn't empty:
-    { id: 'ref-66101', title: 'WALNUT VALET STAND', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '7', o_code: '4', img: 'images/ref-14101-1.jpg' }, // Closet / Storage
-    { id: 'ref-66201', title: 'ACRYLIC HANGER SET', aesthetic: 'TECHNICAL', a_code: '1', r_code: '7', o_code: '5', img: 'images/ref-14101-1.jpg' }, // Closet / Decor
-
-    // --- EXTERIOR ---
-    { id: 'ref-77101', title: 'IRON GARDEN BENCH', aesthetic: 'SOFT HERITAGE', a_code: '4', r_code: '6', o_code: '1', img: 'images/ref-14101-1.jpg' }, // Exterior / Seating
-
-    // --- GENERAL DECOR ---
-    { id: 'ref-53501', title: '3D PRINTED SCULPTURE', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '5', img: 'images/ref-14101-1.jpg' }, // Living / Decor
-    { id: 'ref-34501', title: 'NEON ACRYLIC VASE', aesthetic: 'UTOPIAN POP', a_code: '3', r_code: '1', o_code: '5', img: 'images/ref-14101-1.jpg' }, // Living / Decor
-    { id: 'ref-51201', title: 'ORGANIC FORM TABLE', aesthetic: 'BIOMORPHIC', a_code: '5', r_code: '1', o_code: '2', img: 'images/ref-14101-1.jpg' }, // Living / Table
-];
+//const data moved to data.js
 // State Management
 let activeFilters = { aesthetic: 'all', room: 'all', object: 'all' };
 
@@ -418,8 +380,7 @@ function generateGridHTML(data, savedJournal) {
             : `<div class="image-placeholder"><span>${item.id.toUpperCase()}</span></div>`;
 
         return `
-        <div class="product-card" data-id="${item.id}">
-            <div class="product-image-container">
+<div class="product-card" data-id="${item.id}" onclick="openModal('${item.id}')" style="cursor: pointer;">            <div class="product-image-container">
                 ${mediaHTML}
                 <button class="heart-btn ${activeClass}" onclick="toggleJournal(event, this, '${item.id}')">
                     <svg class="heart-icon" viewBox="0 0 24 24">
@@ -754,60 +715,106 @@ window.toggleThemeTrigger = toggleThemeTrigger;
    7. CAROUSEL
    ========================================================================== */
 function initSeamlessCarousel() {
-  const track = document.getElementById("carousel-track");
-  if (!track) return;
+    const track = document.getElementById("carousel-track");
+    if (!track) return;
 
-  // Save the "true original" markup once
-  if (!track.dataset.originalHtml) {
-    track.dataset.originalHtml = track.innerHTML;
-  }
-
-  const rebuild = async () => {
-    // Stop animation cleanly (prevents mid-cycle jump)
-    track.style.animation = "none";
-    track.offsetHeight; // force reflow
-
-    // Reset to the true original set (always 3 items)
-    track.innerHTML = track.dataset.originalHtml;
-
-    // Wait for images so widths don't change after measuring
-    const imgs = Array.from(track.querySelectorAll("img"));
-    await Promise.allSettled(imgs.map(img => (img.decode ? img.decode() : Promise.resolve())));
-
-    const originals = Array.from(track.children);
-    if (!originals.length) return;
-
-    // Measure width of ONE set
-    const first = originals[0];
-    const last = originals[originals.length - 1];
-    const setWidth = last.getBoundingClientRect().right - first.getBoundingClientRect().left;
-    if (setWidth <= 0) return;
-
-    const viewport = track.parentElement?.getBoundingClientRect().width || window.innerWidth;
-
-    // Clone sets until there is never a gap
-    while (track.scrollWidth < viewport + setWidth * 2) {
-      originals.forEach(node => track.appendChild(node.cloneNode(true)));
+    // Save the "true original" markup once
+    if (!track.dataset.originalHtml) {
+        track.dataset.originalHtml = track.innerHTML;
     }
 
-    // Apply loop distance + premium speed
-    track.style.setProperty("--loop-distance", `${setWidth}px`);
-    const speed = 28; // px/sec (slow = luxe)
-    track.style.animationDuration = `${setWidth / speed}s`;
+    const rebuild = async () => {
+        // Stop animation cleanly (prevents mid-cycle jump)
+        track.style.animation = "none";
+        track.offsetHeight; // force reflow
 
-    // Restart animation
-    track.style.animation = "";
-  };
+        // Reset to the true original set (always 3 items)
+        track.innerHTML = track.dataset.originalHtml;
 
-  // Build once
-  rebuild();
+        // Wait for images so widths don't change after measuring
+        const imgs = Array.from(track.querySelectorAll("img"));
+        await Promise.allSettled(imgs.map(img => (img.decode ? img.decode() : Promise.resolve())));
 
-  // Rebuild on resize (debounced)
-  let t = 0;
-  window.addEventListener("resize", () => {
-    clearTimeout(t);
-    t = setTimeout(rebuild, 120);
-  });
+        const originals = Array.from(track.children);
+        if (!originals.length) return;
+
+        // Measure width of ONE set
+        const first = originals[0];
+        const last = originals[originals.length - 1];
+        const setWidth = last.getBoundingClientRect().right - first.getBoundingClientRect().left;
+        if (setWidth <= 0) return;
+
+        const viewport = track.parentElement?.getBoundingClientRect().width || window.innerWidth;
+
+        // Clone sets until there is never a gap
+        while (track.scrollWidth < viewport + setWidth * 2) {
+            originals.forEach(node => track.appendChild(node.cloneNode(true)));
+        }
+
+        // Apply loop distance + premium speed
+        track.style.setProperty("--loop-distance", `${setWidth}px`);
+        const speed = 28; // px/sec (slow = luxe)
+        track.style.animationDuration = `${setWidth / speed}s`;
+
+        // Restart animation
+        track.style.animation = "";
+    };
+
+    // Build once
+    rebuild();
+
+    // Rebuild on resize (debounced)
+    let t = 0;
+    window.addEventListener("resize", () => {
+        clearTimeout(t);
+        t = setTimeout(rebuild, 120);
+    });
 }
 
 document.addEventListener("DOMContentLoaded", initSeamlessCarousel);
+
+/* ==========================================================================
+   8. PRODUCT DETAILS MODAL
+   ========================================================================== */
+function openModal(id) {
+    const item = furnitureData.find(p => p.id === id);
+    if (!item) return;
+
+    // 1. Populate Data
+    document.getElementById('modal-img').src = item.img || '';
+    document.getElementById('modal-ref').innerText = `REF. ${item.id.split('-')[1]} // ${item.aesthetic}`;
+    document.getElementById('modal-title').innerText = item.title;
+
+    // Fallback text if you haven't added descriptions to all items yet
+    document.getElementById('modal-desc').innerText = item.desc || "A curated selection from the archive. Detailed notes coming soon.";
+
+    document.getElementById('modal-link').href = `go/index.html?id=${item.id}`;
+    // 2. Show Modal
+    const modal = document.getElementById('product-modal');
+    modal.classList.add('active');
+
+    // 3. Lock Body Scroll (High-end feel, prevents background scrolling)
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(event) {
+    // Optional: if triggered by event, prevent bubbling
+    if (event) {
+        event.stopPropagation();
+    }
+
+    const modal = document.getElementById('product-modal');
+    modal.classList.remove('active');
+
+    // Unlock Scroll
+    document.body.style.overflow = '';
+}
+
+// Close on Escape Key
+document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") closeModal();
+});
+
+// Expose to HTML
+window.openModal = openModal;
+window.closeModal = closeModal;

@@ -1054,3 +1054,179 @@ html.soft-reveal .page-content.is-ready {
     transition: none !important;
   }
 }
+
+/* =========================================
+   PRODUCT MODAL (High-End Overlay)
+   ========================================= */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(240, 240, 240, 0.6); /* Light translucent base */
+    backdrop-filter: blur(12px);          /* The "Frosted Glass" lux effect */
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 1250;
+    
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dark Mode Adjustment */
+html.dark .modal-backdrop {
+    background: rgba(10, 10, 10, 0.7);
+}
+
+.modal-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* The Card Itself */
+.modal-content {
+    background: var(--bg);
+    width: 90%;
+    max-width: 900px;
+    height: 550px; /* Fixed height for elegance */
+    
+    display: flex;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    border: 1px solid var(--border);
+    
+    transform: translateY(20px);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-backdrop.active .modal-content {
+    transform: translateY(0);
+}
+
+/* Left Column: Image */
+.modal-image-col {
+    flex: 1.2; /* Takes slightly more space */
+    background: var(--border);
+    overflow: hidden;
+    position: relative;
+}
+
+.modal-image-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Right Column: Info */
+.modal-info-col {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    overflow-y: auto; /* Safety scroll for small screens */
+}
+
+/* Internal Layout */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-family: var(--mono);
+    font-size: 10px;
+    cursor: pointer;
+    color: var(--muted);
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--text);
+}
+
+#modal-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 1.8rem;
+    letter-spacing: -0.02em;
+    margin: 0 0 30px 0;
+    text-transform: uppercase;
+}
+
+.curator-note {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    margin-bottom: auto; /* Pushes actions to bottom */
+}
+
+.note-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+#modal-desc {
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+}
+
+/* Purchase Button & Disclosure */
+.modal-actions {
+    margin-top: 40px;
+}
+
+.purchase-btn {
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    border: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.purchase-btn:hover {
+    background: var(--text);
+    color: var(--bg);
+}
+
+.affiliate-tiny {
+    font-family: var(--mono);
+    font-size: 8px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 10px;
+    opacity: 0.7;
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 768px) {
+    .modal-content {
+        flex-direction: column;
+        height: 90vh; /* Taller on mobile */
+        max-width: 95%;
+    }
+    .modal-image-col {
+        flex: 0 0 40%; /* Image takes top 40% */
+    }
+}
