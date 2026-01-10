@@ -593,6 +593,9 @@ h1 {
 }
 
 /* FOOTER */
+
+
+
 footer {
     padding: 100px 5% 60px 5%;
     border-top: 1px solid var(--border);
@@ -1542,3 +1545,4 @@ color: var(--muted);
   object-position: center; /* crop around the center */
   display: block;
 }
+

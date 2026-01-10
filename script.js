@@ -48,7 +48,12 @@ document.addEventListener("click", (e) => {
     // If it's ONLY a hash like "#top", also ignore
     if (href.startsWith("#")) return;
 
+    // allow mailto links without page transition
+if (href.startsWith("mailto:")) return;
+
     // fade out + navigate (for real page changes)
+
+
     e.preventDefault();
     document.querySelector(".page-content")?.classList.remove("is-ready");
     setTimeout(() => (window.location.href = href), 220);
@@ -919,3 +924,4 @@ document.addEventListener('keydown', (e) => {
 // Expose to HTML
 window.openModal = openModal;
 window.closeModal = closeModal;
+
