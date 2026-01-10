@@ -776,26 +776,119 @@ document.addEventListener("DOMContentLoaded", initSeamlessCarousel);
 /* ==========================================================================
    8. PRODUCT DETAILS MODAL
    ========================================================================== */
+
+let modalGallery = { imgs: [], index: 0 };
+
+function setModalImage(i) {
+    const imgEl = document.getElementById("modal-img");
+    if (!imgEl || !modalGallery.imgs.length) return;
+
+    modalGallery.index = (i + modalGallery.imgs.length) % modalGallery.imgs.length;
+    imgEl.src = modalGallery.imgs[modalGallery.index];
+
+    // update dots
+    const dots = document.getElementById("modal-dots");
+    if (!dots) return;
+    [...dots.children].forEach((d, idx) => d.classList.toggle("is-active", idx === modalGallery.index));
+}
+
+function buildModalDots() {
+    const dots = document.getElementById("modal-dots");
+    if (!dots) return;
+    dots.innerHTML = "";
+
+    modalGallery.imgs.forEach((_, idx) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "dot";
+        b.setAttribute("aria-label", `Go to image ${idx + 1}`);
+        b.onclick = (e) => { e.stopPropagation(); setModalImage(idx); };
+        dots.appendChild(b);
+    });
+}
+
+function modalPrev(event) {
+    if (event) event.stopPropagation();
+    setModalImage(modalGallery.index - 1);
+}
+
+function modalNext(event) {
+    if (event) event.stopPropagation();
+    setModalImage(modalGallery.index + 1);
+}
+
+// Expose to HTML onclick
+window.modalPrev = modalPrev;
+window.modalNext = modalNext;
+
+
 function openModal(id) {
     const item = furnitureData.find(p => p.id === id);
     if (!item) return;
 
-    // 1. Populate Data
-    document.getElementById('modal-img').src = item.img || '';
+    // Gallery source: imgs[] if present, else fallback to img
+    const imgs = Array.isArray(item.imgs) && item.imgs.length ? item.imgs : (item.img ? [item.img] : []);
+    modalGallery = { imgs, index: 0 };
+
+    // Populate core text
     document.getElementById('modal-ref').innerText = `REF. ${item.id.split('-')[1]} // ${item.aesthetic}`;
     document.getElementById('modal-title').innerText = item.title;
+    document.getElementById('modal-desc').innerText =
+        item.desc || "A curated selection from the archive. Detailed notes coming soon.";
 
-    // Fallback text if you haven't added descriptions to all items yet
-    document.getElementById('modal-desc').innerText = item.desc || "A curated selection from the archive. Detailed notes coming soon.";
+        const curator = document.getElementById("modal-curator");
+if (curator) curator.open = true;
 
+const details = document.getElementById("modal-details");
+if (details) details.open = false;
+
+
+    const detailsBody = document.getElementById("modal-details-body");
+    if (detailsBody) {
+        const rows = [];
+
+        if (item.material) rows.push(["Material", item.material]);
+        if (item.origin) rows.push(["Context", item.origin]);
+        if (item.consideration) rows.push(["Consideration", item.consideration]);
+
+
+// STATUS (from enum)
+const statusKey = item.status || "unknown";
+rows.push(["Status", STATUS_LABELS[statusKey] || STATUS_LABELS.unknown]);
+
+
+        // Always include the “verified at source” line (trust + accuracy)
+        // rows.push(["Source", "Dimensions, pricing, and availability are verified at source."]);
+
+        detailsBody.innerHTML = rows.map(([k, v]) => `
+    <div class="details-row">
+      <div class="details-key">${k}</div>
+      <div class="details-val">${v}</div>
+    </div>
+  `).join("");
+    }
+    const detailsEl = document.getElementById("modal-details");
+    if (detailsEl) detailsEl.open = false;
+
+
+    // Link to your redirect loader page (keep as-is)
     document.getElementById('modal-link').href = `go/index.html?id=${item.id}`;
-    // 2. Show Modal
+
+    // Build dots + set first image
+    buildModalDots();
+    setModalImage(0);
+
+    // Show modal
     const modal = document.getElementById('product-modal');
     modal.classList.add('active');
 
-    // 3. Lock Body Scroll (High-end feel, prevents background scrolling)
+    // Lock background scroll (you already do this)
     document.body.style.overflow = 'hidden';
+
+
+
 }
+
 
 function closeModal(event) {
     // Optional: if triggered by event, prevent bubbling
@@ -812,8 +905,16 @@ function closeModal(event) {
 
 // Close on Escape Key
 document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('product-modal');
+    const open = modal && modal.classList.contains('active');
+
     if (e.key === "Escape") closeModal();
+    if (!open) return;
+
+    if (e.key === "ArrowLeft") modalPrev();
+    if (e.key === "ArrowRight") modalNext();
 });
+
 
 // Expose to HTML
 window.openModal = openModal;

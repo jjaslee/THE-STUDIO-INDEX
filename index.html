@@ -250,34 +250,75 @@
         <div class="modal-content" onclick="event.stopPropagation()">
 
             <div class="modal-image-col">
-                <img id="modal-img" src="" alt="">
+                <span class="ref-on-image" id="modal-ref">REF. 0000 // TEMPLATE</span>
+
+                <div class="modal-gallery" aria-label="Object gallery">
+                    <div class="modal-frame">
+                        <img id="modal-img" src="" alt="">
+                    </div>
+
+                    <button class="gallery-nav prev" type="button" onclick="modalPrev(event)"
+                        aria-label="Previous image">‹</button>
+                    <button class="gallery-nav next" type="button" onclick="modalNext(event)"
+                        aria-label="Next image">›</button>
+
+                    <div class="gallery-dots" id="modal-dots" aria-label="Gallery pagination"></div>
+                </div>
             </div>
+
+
 
             <div class="modal-info-col">
                 <div class="modal-header">
-                    <span class="ref-id" id="modal-ref">REF. 0000 // TEMPLATE</span>
                     <button class="modal-close" onclick="closeModal(event)">[ CLOSE ]</button>
                 </div>
 
                 <div class="modal-body">
                     <h2 id="modal-title">OBJECT TITLE</h2>
 
-                    <div class="curator-note">
-                        <span class="note-label">CURATOR'S NOTE:</span>
-                        <p id="modal-desc">
-                            A placeholder description of why this piece was selected.
-                            Its form language speaks to the brutalist soft aesthetic we prize.
-                        </p>
+                    <div class="modal-mid">
+
+                        <div class="curator-note">
+                            <span class="note-label">CURATOR’S NOTE</span>
+                            <p id="modal-desc">
+                                A placeholder description of why this piece was selected.
+                                Its form language speaks to the brutalist soft aesthetic we prize.
+                            </p>
+                        </div>
+
+
+
+                        <details class="modal-details" id="modal-details">
+                            <summary class="details-summary">
+                                <span class="details-label">DETAILS</span>
+                                <span class="details-icon" aria-hidden="true">+</span>
+                            </summary>
+
+                            <div class="details-body" id="modal-details-body">
+                                <!-- filled by JS; safe fallback text: -->
+                                <p class="details-muted">Dimensions, pricing, and availability are verified at source.
+                                </p>
+                            </div>
+                        </details>
+
                     </div>
 
-                    <div class="modal-actions">
-                        <a href="#" target="_blank" id="modal-link" class="purchase-btn">
-                            [ ACQUIRE OBJECT ]
-                        </a>
-                        <p class="affiliate-tiny">
-                            *Link directs to partner retailer. Commission may be earned.
-                        </p>
-                    </div>
+
+
+                </div>
+                <div class="modal-actions">
+                    <a href="#" target="_blank" id="modal-link" class="purchase-btn"
+                        onmouseenter="scrambleTrigger(this)" onfocus="scrambleTrigger(this)">
+                        [ <span class="current-text" data-true-word="VIEW AT SOURCE">VIEW AT SOURCE</span> ]
+                    </a>
+
+                    
+
+
+
+                    <p class="affiliate-tiny">
+                        External link to verified retailer. Commission may be earned.
+                    </p>
                 </div>
             </div>
 
