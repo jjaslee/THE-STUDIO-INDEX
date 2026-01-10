@@ -4,95 +4,122 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Connecting…</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- If this file is /go/index.html, this path is correct -->
+  <link rel="stylesheet" href="../style.css" />
 
   <script>
+    // Apply theme ASAP (URL param wins, then localStorage)
     (function () {
-      if (localStorage.getItem('studioTheme') === 'dark') {
-        document.documentElement.classList.add('dark');
+      const p = new URLSearchParams(window.location.search);
+      const t = p.get("t");
+      const stored = localStorage.getItem("studioTheme");
+      const theme = (t === "light" || t === "dark") ? t : stored;
+
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("studioTheme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("studioTheme", "light");
       }
     })();
   </script>
 
   <style>
-    body {
-      display: grid;
-      place-items: center;
-      height: 100vh;
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--mono);
+    body{
+      display:grid;
+      place-items:center;
+      height:100vh;
+      margin:0;
+
+      /* IMPORTANT: light fallbacks so Safari never "starts" dark */
+      background: var(--bg, #f5f5f5);
+      color: var(--text, #111111);
+
+      font-family: var(--mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
     }
-
-    .redirect-wrap {
-      text-align: center;
-      width: 240px;
+    .redirect-wrap{ text-align:center; width:240px; }
+    .label{
+      font-size:9px;
+      letter-spacing:.15em;
+      margin-bottom:14px;
+      opacity:.7;
     }
-
-    .label {
-      font-size: 9px;
-      letter-spacing: 0.15em;
-      margin-bottom: 14px;
-      opacity: 0.7;
-          font-family: var(--mono);
-
+    .bar{
+      height:2px;
+      background: var(--border, rgba(0,0,0,.18)); /* visible in light fallback */
+      overflow:hidden;
     }
-
-    .bar {
-      height: 2px;
-      background: var(--border);
-      overflow: hidden;
+    .bar-fill{
+      height:100%;
+      width:0%;
+      background: var(--text, #111111);
     }
-
-    .bar-fill {
-      height: 100%;
-      width: 0%;
-      background: var(--text);
-animation: load 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;    }
-
-    @keyframes load {
-      to { width: 100%; }
+    .bar-fill.is-loading{
+      animation: load 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
+    @keyframes load{ from{width:0%} to{width:100%} }
+    @media (prefers-reduced-motion: reduce){
+      .bar-fill.is-loading{ animation:none; width:100% }
+    }
+    /* =========================
+   DARK MODE SAFETY OVERRIDES
+   ========================= */
+
+/* Body fallbacks when .dark is present */
+html.dark body {
+  background: var(--bg, #0b0b0b);
+  color: var(--text, #ffffff);
+}
+
+/* Progress bar track in dark mode */
+html.dark .bar {
+  background: var(--border, rgba(255,255,255,0.28));
+}
+
+/* Progress bar fill in dark mode */
+html.dark .bar-fill {
+  background: var(--text, #ffffff);
+}
+
   </style>
 </head>
 
 <body>
   <div class="redirect-wrap">
     <div class="label">CONNECTING TO ARCHIVE SOURCE…</div>
-    <div class="bar">
-      <div class="bar-fill"></div>
-    </div>
+    <div class="bar"><div class="bar-fill"></div></div>
   </div>
 
- <link rel="stylesheet" href="../style.css" />
-
-<script src="../data.js"></script>
-
-<script>
+  <script src="../data.js"></script>
+  <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const refId = urlParams.get('id');
-    
-    // Look in the data.js furnitureData array
-    const item = furnitureData.find(p => p.id === refId);
-    
-    // Update the label on the screen
-    if (item) {
-        document.querySelector('.label').innerText = `CONNECTING TO SOURCE: ${item.id.toUpperCase()}`;
+    const refId = urlParams.get("id");
+
+    const themeParam = urlParams.get("t");
+    const storedTheme = localStorage.getItem("studioTheme");
+    const theme = (themeParam === "light" || themeParam === "dark") ? themeParam : storedTheme;
+
+    const item = (typeof furnitureData !== "undefined")
+      ? furnitureData.find(p => p.id === refId)
+      : null;
+
+    const labelEl = document.querySelector(".label");
+    if (item && item.id) {
+      labelEl.innerText = `CONNECTING TO SOURCE: ${String(item.id).toUpperCase()}`;
     }
 
-    window.onload = () => {
-        if (item && item.link) {
-            setTimeout(() => {
-                window.location.href = item.link;
-            }, 1500);
-        } else {
-            // Error handling: if no ID found, go back to main site
-            setTimeout(() => { window.location.href = '../index.html'; }, 2000);
-        }
-    };
-</script>
+    window.addEventListener("load", () => {
+      const fill = document.querySelector(".bar-fill");
+      if (fill) fill.classList.add("is-loading");
 
-
+      if (item && item.link) {
+        setTimeout(() => { window.location.href = item.link; }, 1500);
+      } else {
+        setTimeout(() => { window.location.href = "../index.html"; }, 2000);
+      }
+    });
+  </script>
 </body>
 </html>
